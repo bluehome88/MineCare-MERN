@@ -8,6 +8,8 @@ import { Link as RouterLink } from 'react-router-dom';
 // material
 import { styled } from '@mui/material/styles';
 import { Grid, Link, Divider, Container, Typography, IconButton, Stack } from '@mui/material';
+// routes
+import { PATH_PAGE } from '../../routes/paths';
 //
 import Logo from '../../components/Logo';
 
@@ -24,9 +26,9 @@ const LINKS = [
   {
     headline: 'Minimal',
     children: [
-      { name: 'About us', href: '#' },
-      { name: 'Contact us', href: '#' },
-      { name: 'FAQs', href: '#' }
+      { name: 'About us', href: PATH_PAGE.about },
+      { name: 'Contact us', href: PATH_PAGE.contact },
+      { name: 'FAQs', href: PATH_PAGE.faqs }
     ]
   },
   {

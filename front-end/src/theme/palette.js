@@ -103,8 +103,8 @@ const COMMON = {
   error: { ...ERROR },
   grey: GREY,
   gradients: GRADIENTS,
-  divider: GREY[500_24],
   chart: CHART_COLORS,
+  divider: GREY[500_24],
   action: {
     hover: GREY[500_8],
     selected: GREY[500_16],

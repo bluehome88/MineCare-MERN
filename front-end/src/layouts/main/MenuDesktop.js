@@ -109,7 +109,7 @@ function MenuDesktopItem({ item, isHome, isOpen, isOffset, onOpen, onClose }) {
               m: 'auto',
               borderRadius: 2,
               maxWidth: (theme) => theme.breakpoints.values.lg,
-              boxShadow: (theme) => theme.customShadows.primary
+              boxShadow: (theme) => theme.customShadows.z24
             }
           }}
         >
@@ -183,6 +183,21 @@ function MenuDesktopItem({ item, isHome, isOpen, isOffset, onOpen, onClose }) {
           </Grid>
         </Popover>
       </>
+    );
+  }
+
+  if (title === 'Documentation') {
+    return (
+      <LinkStyle
+        href={path}
+        target="_blank"
+        sx={{
+          ...(isHome && { color: 'common.white' }),
+          ...(isOffset && { color: 'text.primary' })
+        }}
+      >
+        {title}
+      </LinkStyle>
     );
   }
 

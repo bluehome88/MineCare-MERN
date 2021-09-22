@@ -100,11 +100,13 @@ export default function LandingHero() {
               justifyContent={{ xs: 'center', md: 'flex-start' }}
             >
               <img alt="sketch icon" src="/static/home/ic_sketch_small.svg" width={20} height={20} />
+
               <Link
                 underline="always"
                 href="https://www.sketch.com/s/0fa4699d-a3ff-4cd5-a3a7-d851eb7e17f0"
                 target="_blank"
-                sx={{ color: 'common.white' }}
+                color="common.white"
+                sx={{ typography: 'body2' }}
               >
                 Preview in Sketch Cloud
               </Link>
