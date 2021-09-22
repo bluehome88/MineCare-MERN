@@ -3,13 +3,14 @@ import { Icon } from '@iconify/react';
 import menu2Fill from '@iconify/icons-eva/menu-2-fill';
 // material
 import { alpha, styled } from '@mui/material/styles';
-import { Box, Stack, AppBar, Toolbar, IconButton } from '@mui/material';
+import { Box, Stack, AppBar, Toolbar, IconButton, Typography } from '@mui/material';
 // hooks
 import useCollapseDrawer from '../../hooks/useCollapseDrawer';
 // components
 import { MHidden } from '../../components/@material-extend';
 import Searchbar from './Searchbar';
 import AccountPopover from './AccountPopover';
+import TopMenuPopover from './TopMenuPopover';
 import LanguagePopover from './LanguagePopover';
 import ContactsPopover from './ContactsPopover';
 import NotificationsPopover from './NotificationsPopover';
@@ -35,6 +36,7 @@ const RootStyle = styled(AppBar)(({ theme }) => ({
 const ToolbarStyle = styled(Toolbar)(({ theme }) => ({
   minHeight: APPBAR_MOBILE,
   [theme.breakpoints.up('lg')]: {
+    backgroundColor: theme.palette.primary.light,
     minHeight: APPBAR_DESKTOP,
     padding: theme.spacing(0, 5)
   }
@@ -64,13 +66,20 @@ export default function DashboardNavbar({ onOpenSidebar }) {
           </IconButton>
         </MHidden>
 
-        <Searchbar />
+        <Typography
+          variant="h4"
+          sx={{
+            mb: 1,
+            display: 'block'
+          }}
+        >
+          MinCare Dashboard
+        </Typography>
+
         <Box sx={{ flexGrow: 1 }} />
 
         <Stack direction="row" alignItems="center" spacing={{ xs: 0.5, sm: 1.5 }}>
-          <LanguagePopover />
-          <NotificationsPopover />
-          <ContactsPopover />
+          <TopMenuPopover />
           <AccountPopover />
         </Stack>
       </ToolbarStyle>
