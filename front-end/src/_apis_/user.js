@@ -58,10 +58,12 @@ mock.onGet('/api/user/manage-users').reply(() => {
     state: 'Virginia',
     city: 'Rancho Cordova',
     zipCode: '85807',
+    department: 'Drilling',
     company: mockData.company(index),
     isVerified: mockData.boolean(index),
     status: sample(['active', 'banned']) || 'active',
-    role: mockData.role(index)
+    role: mockData.role(index),
+    employee: false
   }));
 
   return [200, { users }];
