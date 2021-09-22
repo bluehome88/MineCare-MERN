@@ -82,6 +82,8 @@ export default function Router() {
         { path: 'analytics', element: <GeneralAnalytics /> },
         { path: 'banking', element: <GeneralBanking /> },
         { path: 'booking', element: <GeneralBooking /> },
+        { path: 'app/schedule', element: <GeneralSchedule /> },
+        { path: 'app/notification', element: <GeneralNotification /> },
 
         {
           path: 'e-commerce',
@@ -319,3 +321,7 @@ const MultiLanguage = Loadable(lazy(() => import('../pages/components-overview/e
 const Animate = Loadable(lazy(() => import('../pages/components-overview/extra/animate')));
 const MegaMenu = Loadable(lazy(() => import('../pages/components-overview/extra/MegaMenu')));
 const FormValidation = Loadable(lazy(() => import('../pages/components-overview/extra/form-validation')));
+
+// New Pages
+const GeneralSchedule = Loadable(lazy(() => import('../pages/dashboard/GeneralSchedule')));
+const GeneralNotification = Loadable(lazy(() => import('../pages/dashboard/GeneralNotification')));

@@ -32,7 +32,6 @@ const sidebarConfig = [
     items: [
       {
         title: 'Landing Pages',
-        path: PATH_DASHBOARD.general.app,
         icon: ICONS.blog,
         children: [
           { title: 'Health', path: PATH_DASHBOARD.general.app },
@@ -44,11 +43,11 @@ const sidebarConfig = [
       },
       {
         title: 'Dashboard',
-        path: PATH_DASHBOARD.general.app,
         icon: ICONS.dashboard,
+        path: PATH_DASHBOARD.general.app,
         children: [
-          { title: 'Schedule Management', path: PATH_DASHBOARD.general.app },
-          { title: 'Notifications', path: PATH_DASHBOARD.general.app }
+          { title: 'Schedule Management', path: PATH_DASHBOARD.general.schedule },
+          { title: 'Notifications', path: PATH_DASHBOARD.general.notification }
         ]
       },
       {
@@ -63,7 +62,6 @@ const sidebarConfig = [
       },
       {
         title: 'Employees',
-        path: PATH_DASHBOARD.general.app,
         icon: ICONS.user,
         children: [
           { title: 'Employee List', path: PATH_DASHBOARD.general.app },
