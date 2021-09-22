@@ -116,7 +116,7 @@ export default function Router() {
             { element: <Navigate to="/dashboard/employee/profile" replace /> },
             { path: 'list', element: <EmployeeList /> },
             { path: 'new', element: <EmployeeCreate /> },
-            { path: ':name/edit', element: <EmployeeCreate /> },
+            { path: ':name/edit', element: <EmployeeCreate /> }
           ]
         },
         {
