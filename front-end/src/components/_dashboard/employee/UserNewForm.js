@@ -33,14 +33,13 @@ export default function UserNewForm({ isEdit, currentUser }) {
     email: Yup.string().required('Email is required').email(),
     phoneNumber: Yup.string().required('Phone number is required'),
     address: Yup.string().required('Address is required'),
-    country: Yup.string().required('country is required'),
-    company: Yup.string().required('Company is required'),
     state: Yup.string().required('State is required'),
+    birthday: Yup.string().required('Date of Birth is required'),
     city: Yup.string().required('City is required'),
     role: Yup.string().required('Role Number is required'),
-    avatarUrl: Yup.mixed().required('Avatar is required'),
-    employee: Yup.bool().required('Employee is required'),
-    department: Yup.bool().required('Department is required')
+    postal: Yup.string().required('Postal is required'),
+    gender: Yup.string().required('Gender is required'),
+    department: Yup.string().required('Department is required')
   });
 
   const formik = useFormik({
@@ -50,17 +49,13 @@ export default function UserNewForm({ isEdit, currentUser }) {
       email: currentUser?.email || '',
       phoneNumber: currentUser?.phoneNumber || '',
       address: currentUser?.address || '',
-      country: currentUser?.country || '',
       state: currentUser?.state || '',
       city: currentUser?.city || '',
-      zipCode: currentUser?.zipCode || '',
-      avatarUrl: currentUser?.avatarUrl || null,
-      isVerified: currentUser?.isVerified || true,
-      status: currentUser?.status,
-      company: currentUser?.company || '',
+      postal: currentUser?.postal || '',
+      gender: currentUser?.gender || '',
       role: currentUser?.role || '',
       department: currentUser?.department || '',
-      employee: currentUser?.employee || false
+      birthday: currentUser?.birthday || ''
     },
     validationSchema: NewUserSchema,
     onSubmit: async (values, { setSubmitting, resetForm, setErrors }) => {
