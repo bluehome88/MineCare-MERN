@@ -73,7 +73,7 @@ export default function DashboardNavbar({ onOpenSidebar }) {
             display: 'block'
           }}
         >
-          MinCare Dashboard
+          MineCare Dashboard
         </Typography>
 
         <Box sx={{ flexGrow: 1 }} />
