@@ -39,7 +39,7 @@ export default function UserNewForm({ isEdit, currentUser }) {
     role: Yup.string().required('Role Number is required'),
     avatarUrl: Yup.mixed().required('Avatar is required'),
     employee: Yup.bool().required('Employee is required'),
-    department: Yup.bool().required('Department is required')
+    department: Yup.string().required('Department is required')
   });
 
   const formik = useFormik({

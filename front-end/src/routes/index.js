@@ -111,6 +111,15 @@ export default function Router() {
           ]
         },
         {
+          path: 'employee',
+          children: [
+            { element: <Navigate to="/dashboard/employee/profile" replace /> },
+            { path: 'list', element: <EmployeeList /> },
+            { path: 'new', element: <EmployeeCreate /> },
+            { path: ':name/edit', element: <EmployeeCreate /> },
+          ]
+        },
+        {
           path: 'blog',
           children: [
             { element: <Navigate to="/dashboard/blog/posts" replace /> },
@@ -255,6 +264,8 @@ const BlogNewPost = Loadable(lazy(() => import('../pages/dashboard/BlogNewPost')
 const UserProfile = Loadable(lazy(() => import('../pages/dashboard/UserProfile')));
 const UserCards = Loadable(lazy(() => import('../pages/dashboard/UserCards')));
 const UserList = Loadable(lazy(() => import('../pages/dashboard/UserList')));
+const EmployeeList = Loadable(lazy(() => import('../pages/dashboard/EmployeeList')));
+const EmployeeCreate = Loadable(lazy(() => import('../pages/dashboard/EmployeeCreate')));
 const UserAccount = Loadable(lazy(() => import('../pages/dashboard/UserAccount')));
 const UserCreate = Loadable(lazy(() => import('../pages/dashboard/UserCreate')));
 const Chat = Loadable(lazy(() => import('../pages/dashboard/Chat')));
