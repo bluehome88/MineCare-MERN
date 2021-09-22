@@ -41,7 +41,7 @@ export const PATH_DASHBOARD = {
     banking: path(ROOTS_DASHBOARD, '/banking'),
     booking: path(ROOTS_DASHBOARD, '/booking'),
     schedule: path(ROOTS_DASHBOARD, '/app/schedule'),
-    notification: path(ROOTS_DASHBOARD, '/app/notification')    
+    notification: path(ROOTS_DASHBOARD, '/app/notification')
   },
   mail: {
     root: path(ROOTS_DASHBOARD, '/mail'),
@@ -95,15 +95,15 @@ export const PATH_DASHBOARD = {
     history: path(ROOTS_DASHBOARD, `/health/history`),
     emergency: path(ROOTS_DASHBOARD, `/health/emergency`),
     education: path(ROOTS_DASHBOARD, `/health/education`)
-  },  
+  },
   safety: {
-    root: path(ROOTS_DASHBOARD, '/safety'),
+    root: path(ROOTS_DASHBOARD, '/safety')
   },
   security: {
-    root: path(ROOTS_DASHBOARD, '/security'),
+    root: path(ROOTS_DASHBOARD, '/security')
   },
   report: {
-    root: path(ROOTS_DASHBOARD, '/report'),
+    root: path(ROOTS_DASHBOARD, '/report')
   }
 };
 
