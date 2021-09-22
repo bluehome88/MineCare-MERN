@@ -7,6 +7,7 @@ export { default as AppTopInstalledCountries } from './AppTopInstalledCountries'
 export { default as AppTopRelated } from './AppTopRelated';
 export { default as AppTotalActiveUsers } from './AppTotalActiveUsers';
 export { default as AppTotalDownloads } from './AppTotalDownloads';
+export { default as AppTotalRoles } from './AppTotalRoles';
 export { default as AppTotalInstalled } from './AppTotalInstalled';
 export { default as AppWelcome } from './AppWelcome';
 export { default as AppWidgets1 } from './AppWidgets1';

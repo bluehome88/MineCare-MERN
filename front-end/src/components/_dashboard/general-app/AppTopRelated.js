@@ -89,7 +89,7 @@ function ApplicationItem({ app }) {
 export default function AppTopRelated() {
   return (
     <Card>
-      <CardHeader title="Top Related Applications" />
+      <CardHeader title="Notification" />
       <Scrollbar>
         <Stack spacing={3} sx={{ p: 3, pr: 0 }}>
           {MOCK_APPLICATIONS.map((app) => (

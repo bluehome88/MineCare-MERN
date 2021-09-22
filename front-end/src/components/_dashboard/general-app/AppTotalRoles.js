@@ -23,15 +23,15 @@ const IconWrapperStyle = styled('div')(({ theme }) => ({
 
 // ----------------------------------------------------------------------
 
-const PERCENT = 0.15;
-const TOTAL_INSTALLED = 4876;
-const CHART_DATA = [{ data: [5, 18, 12, 51, 68, 11, 39, 37, 27, 20] }];
+const PERCENT = 0.06;
+const TOTAL_DOWNLOAD = 45;
+const CHART_DATA = [{ data: [8, 9, 11, 36, 16, 37, 17, 23, 46, 31] }];
 
-export default function AppTotalInstalled() {
+export default function AppTotalRoles() {
   const theme = useTheme();
 
   const chartOptions = {
-    colors: [theme.palette.chart.blue[0]],
+    colors: [theme.palette.warning.main],
     chart: { sparkline: { enabled: true } },
     plotOptions: { bar: { columnWidth: '68%', borderRadius: 2 } },
     labels: ['1', '2', '3', '4', '5', '6', '7', '8'],
@@ -50,7 +50,7 @@ export default function AppTotalInstalled() {
   return (
     <Card sx={{ display: 'flex', alignItems: 'center', p: 3 }}>
       <Box sx={{ flexGrow: 1 }}>
-        <Typography variant="subtitle2">Employee</Typography>
+        <Typography variant="subtitle2">Roles</Typography>
 
         <Stack direction="row" alignItems="center" spacing={1} sx={{ mt: 2, mb: 1 }}>
           <IconWrapperStyle
@@ -69,7 +69,7 @@ export default function AppTotalInstalled() {
           </Typography>
         </Stack>
 
-        <Typography variant="h3">{fNumber(TOTAL_INSTALLED)}</Typography>
+        <Typography variant="h3">{fNumber(TOTAL_DOWNLOAD)}</Typography>
       </Box>
 
       <ReactApexChart type="bar" series={CHART_DATA} options={chartOptions} width={60} height={36} />

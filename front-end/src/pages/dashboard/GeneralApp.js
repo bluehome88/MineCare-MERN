@@ -1,5 +1,5 @@
 // material
-import { Container, Grid, Stack } from '@mui/material';
+import { Container, Grid, Stack, Typography } from '@mui/material';
 // hooks
 import useAuth from '../../hooks/useAuth';
 import useSettings from '../../hooks/useSettings';
@@ -15,6 +15,7 @@ import {
   AppTopRelated,
   AppAreaInstalled,
   AppTotalDownloads,
+  AppTotalRoles,
   AppTotalInstalled,
   AppCurrentDownload,
   AppTotalActiveUsers,
@@ -29,57 +30,33 @@ export default function GeneralApp() {
 
   return (
     <Page title="General: App | Minimal-UI">
+      <Typography variant="h4" sx={{ px: 5, mt: 2, mb: 2 }}>
+        Quick Access
+      </Typography>
       <Container maxWidth={themeStretch ? false : 'xl'}>
         <Grid container spacing={3}>
-          <Grid item xs={12} md={8}>
-            <AppWelcome displayName={user.displayName} />
-          </Grid>
-
-          <Grid item xs={12} md={4}>
-            <AppFeatured />
-          </Grid>
-
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} md={3}>
             <AppTotalActiveUsers />
           </Grid>
 
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} md={3}>
             <AppTotalInstalled />
           </Grid>
 
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} md={3}>
             <AppTotalDownloads />
           </Grid>
 
-          <Grid item xs={12} md={6} lg={4}>
-            <AppCurrentDownload />
+          <Grid item xs={12} md={3}>
+            <AppTotalRoles />
           </Grid>
 
-          <Grid item xs={12} md={6} lg={8}>
-            <AppAreaInstalled />
-          </Grid>
-
-          <Grid item xs={12} lg={8}>
+          <Grid item xs={12} md={6}>
             <AppNewInvoice />
           </Grid>
 
-          <Grid item xs={12} md={6} lg={4}>
+          <Grid item xs={12} md={6}>
             <AppTopRelated />
-          </Grid>
-
-          <Grid item xs={12} md={6} lg={4}>
-            <AppTopInstalledCountries />
-          </Grid>
-
-          <Grid item xs={12} md={6} lg={4}>
-            <AppTopAuthors />
-          </Grid>
-
-          <Grid item xs={12} md={6} lg={4}>
-            <Stack spacing={3}>
-              <AppWidgets1 />
-              <AppWidgets2 />
-            </Stack>
           </Grid>
         </Grid>
       </Container>
