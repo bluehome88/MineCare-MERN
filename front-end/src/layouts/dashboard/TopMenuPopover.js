@@ -1,10 +1,14 @@
 import { Icon } from '@iconify/react';
 import { useSnackbar } from 'notistack';
 import { useRef, useState } from 'react';
-import settingsFill from '@iconify/icons-eva/settings-fill';
 import homeFill from '@iconify/icons-eva/home-fill';
 import personFill from '@iconify/icons-eva/person-fill';
 import settings2Fill from '@iconify/icons-eva/settings-2-fill';
+import heartFill from '@iconify/icons-eva/heart-fill';
+import shieldFill from '@iconify/icons-eva/shield-fill';
+import safeMaskFill from '@iconify/icons-ic/sharp-masks';
+import pieChartFill from '@iconify/icons-eva/pie-chart-fill';
+
 import { Link as RouterLink, useNavigate } from 'react-router-dom';
 // material
 import { alpha } from '@mui/material/styles';
@@ -23,19 +27,29 @@ import MenuPopover from '../../components/MenuPopover';
 
 const MENU_OPTIONS = [
   {
-    label: 'Home',
-    icon: homeFill,
+    label: 'Healthy',
+    icon: heartFill,
     linkTo: '/'
   },
   {
-    label: 'Profile',
-    icon: personFill,
-    linkTo: PATH_DASHBOARD.user.profile
+    label: 'Safety',
+    icon: safeMaskFill,
+    linkTo: '/'
   },
   {
-    label: 'Settings',
-    icon: settings2Fill,
-    linkTo: PATH_DASHBOARD.user.account
+    label: 'Security',
+    icon: shieldFill,
+    linkTo: '/'
+  },
+  {
+    label: 'Administration',
+    icon: personFill,
+    linkTo: '/'
+  },
+  {
+    label: 'Reports',
+    icon: pieChartFill,
+    linkTo: '/'
   }
 ];
 
@@ -82,7 +96,7 @@ export default function TopMenuPopover() {
           })
         }}
       >
-        <Icon icon={settingsFill} width={20} height={20} />
+        <Icon icon={settings2Fill} width={20} height={20} />
       </MIconButton>
 
       <MenuPopover open={open} onClose={handleClose} anchorEl={anchorRef.current} sx={{ width: 220 }}>
