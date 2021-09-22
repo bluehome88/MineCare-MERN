@@ -156,9 +156,14 @@ export default function Router() {
     },
     {
       path: '/',
-      element: <MainLayout />,
+      element: (
+        <AuthGuard>
+          <DashboardLayout />
+        </AuthGuard>
+      ),
       children: [
-        { element: <LandingPage /> },
+        { element: <Navigate to="/dashboard/app" replace /> },
+        { path: 'main', element: <MainLayout /> },
         { path: 'about-us', element: <About /> },
         { path: 'contact-us', element: <Contact /> },
         { path: 'faqs', element: <Faqs /> },
