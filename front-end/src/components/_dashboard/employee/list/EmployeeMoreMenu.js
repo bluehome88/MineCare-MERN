@@ -50,7 +50,11 @@ export default function EmployeeMoreMenu({ onDelete, employeeName }) {
           <ListItemText primary="Edit" primaryTypographyProps={{ variant: 'body2' }} />
         </MenuItem>
 
-        <MenuItem onClick={onDelete} sx={{ color: 'text.secondary' }}>
+        <MenuItem 
+          component={RouterLink}
+          to={`${PATH_DASHBOARD.employee.root}/${paramCase(employeeName)}/profile`}
+          sx={{ color: 'text.secondary' }}
+        >
           <ListItemIcon>
             <Icon icon={editFill} width={24} height={24} />
           </ListItemIcon>
