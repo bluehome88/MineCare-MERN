@@ -10,11 +10,8 @@ import useCollapseDrawer from '../../hooks/useCollapseDrawer';
 import { MHidden } from '../../components/@material-extend';
 import AccountPopover from './AccountPopover';
 import TopMenuPopover from './TopMenuPopover';
-
+import MainLogo from '../../components/MainLogo';
 // ----------------------------------------------------------------------
-
-const DRAWER_WIDTH = 280;
-const COLLAPSE_WIDTH = 102;
 
 const APPBAR_MOBILE = 64;
 const APPBAR_DESKTOP = 92;
@@ -25,7 +22,7 @@ const RootStyle = styled(AppBar)(({ theme }) => ({
   WebkitBackdropFilter: 'blur(6px)', // Fix on Mobile
   backgroundColor: alpha(theme.palette.background.default, 0.72),
   [theme.breakpoints.up('lg')]: {
-    width: `calc(100% - ${DRAWER_WIDTH + 1}px)`
+    width: `100%`
   }
 }));
 
@@ -51,7 +48,7 @@ export default function DashboardNavbar({ onOpenSidebar }) {
     <RootStyle
       sx={{
         ...(isCollapse && {
-          width: { lg: `calc(100% - ${COLLAPSE_WIDTH}px)` }
+          width: { lg: `100%` }
         })
       }}
     >
@@ -61,11 +58,12 @@ export default function DashboardNavbar({ onOpenSidebar }) {
             <Icon icon={menu2Fill} />
           </IconButton>
         </MHidden>
-
+        <MainLogo />
         <Typography
           variant="h4"
           sx={{
             mb: 1,
+            ml: 2,
             display: 'block'
           }}
         >
