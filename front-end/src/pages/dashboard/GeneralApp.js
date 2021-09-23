@@ -10,12 +10,12 @@ import Page from '../../components/Page';
 import { PATH_DASHBOARD } from '../../routes/paths';
 
 import {
-  AppNewInvoice,
-  AppTopRelated,
-  AppTotalDownloads,
+  AppTotalActiveUsers,
+  AppTotalEmployees,
+  AppTotalDepartments,
   AppTotalRoles,
-  AppTotalInstalled,
-  AppTotalActiveUsers
+  AppSchedules,
+  AppNotifications
 } from '../../components/_dashboard/general-app';
 
 // ----------------------------------------------------------------------
@@ -45,8 +45,8 @@ export default function GeneralApp() {
 
           <Grid item xs={12} md={3}>
             <LinkStyle>
-              <Link component={RouterLink} to={PATH_DASHBOARD.user.list}>
-                <AppTotalInstalled />
+              <Link component={RouterLink} to={PATH_DASHBOARD.employee.list}>
+                <AppTotalEmployees />
               </Link>
             </LinkStyle>
           </Grid>
@@ -54,7 +54,7 @@ export default function GeneralApp() {
           <Grid item xs={12} md={3}>
             <LinkStyle>
               <Link component={RouterLink} to={PATH_DASHBOARD.user.list}>
-                <AppTotalDownloads />
+                <AppTotalDepartments />
               </Link>
             </LinkStyle>            
           </Grid>
@@ -68,11 +68,11 @@ export default function GeneralApp() {
           </Grid>
 
           <Grid item xs={12} md={6}>
-            <AppNewInvoice />
+            <AppSchedules />
           </Grid>
 
           <Grid item xs={12} md={6}>
-            <AppTopRelated />
+            <AppNotifications />
           </Grid>
         </Grid>
       </Container>
