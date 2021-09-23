@@ -70,6 +70,7 @@ const sidebarConfig = [
         children: [
           { title: 'User List', path: PATH_DASHBOARD.user.list },
           { title: 'Add User', path: PATH_DASHBOARD.user.newUser },
+          { title: 'My Profile', path: PATH_DASHBOARD.user.profile },
           { title: 'My Account', path: PATH_DASHBOARD.user.account }
         ]
       },
