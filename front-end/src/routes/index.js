@@ -178,7 +178,7 @@ export default function Router() {
         </AuthGuard>
       ),
       children: [
-        { element: <Navigate to="/dashboard/app" replace /> },
+        { element: <Navigate to="/dashboard/landing" replace /> },
         { path: 'main', element: <MainLayout /> },
         { path: 'about-us', element: <About /> },
         { path: 'contact-us', element: <Contact /> },

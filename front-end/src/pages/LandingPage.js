@@ -4,9 +4,11 @@ import { Box, Grid, Switch, Container, Typography, Card, Button } from '@mui/mat
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import SecurityIcon from '@mui/icons-material/Security';
 import HealthAndSafetyIcon from '@mui/icons-material/HealthAndSafety';
+import { Link as RouterLink } from 'react-router-dom';
 // components
 import Page from '../components/Page';
 import { PlanFreeIcon, PlanStarterIcon, PlanPremiumIcon } from '../assets';
+import { PATH_DASHBOARD } from '../routes/paths';
 
 // ----------------------------------------------------------------------
 
@@ -76,11 +78,11 @@ export default function LandingPage() {
 
         <Grid container spacing={3}>
           <Grid item xs={4} md={4}>
-            <Button>
+            <Button component={RouterLink} to={PATH_DASHBOARD.health.root}>
               <Card sx={{ p:4, textAlign:"center" }}>
-                <FavoriteIcon sx={{fontSize:80}}/>
+                <FavoriteIcon sx={{fontSize:80, color:"red"}}/>
                 <Typography variant="h3" align="center" sx={{m:3, mb:4}}>
-                  MineCare
+                  Health
                 </Typography>
                 <Typography align="center" sx={{m:3, mb:4}}>
                 Lorem ipsum dolor sit amet, consectetue adipiscing elit, sed do eiusmod tempor incididunt ut labore et
@@ -89,9 +91,9 @@ export default function LandingPage() {
             </Button>
           </Grid>
           <Grid item xs={4} md={4}>
-            <Button>
+            <Button component={RouterLink} to={PATH_DASHBOARD.safety.root}>
               <Card sx={{ p:4, textAlign:"center" }}>
-                <HealthAndSafetyIcon sx={{fontSize:80}}/>
+                <HealthAndSafetyIcon sx={{fontSize:80, color:"blue"}}/>
                 <Typography variant="h3" align="center" sx={{m:3, mb:4}}>
                   Safety
                 </Typography>
@@ -102,9 +104,9 @@ export default function LandingPage() {
             </Button>
           </Grid>
           <Grid item xs={4} md={4}>
-            <Button>
+            <Button component={RouterLink} to={PATH_DASHBOARD.security.root}>
               <Card sx={{ p:4, textAlign:"center" }}>
-                <SecurityIcon sx={{fontSize:80}}/>
+                <SecurityIcon sx={{fontSize:80, color:"green"}}/>
                 <Typography variant="h3" align="center" sx={{m:3, mb:4}}>
                   Security
                 </Typography>

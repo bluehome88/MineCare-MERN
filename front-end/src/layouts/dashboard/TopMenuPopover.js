@@ -15,6 +15,7 @@ import { Box, MenuItem } from '@mui/material';
 // components
 import { MIconButton } from '../../components/@material-extend';
 import MenuPopover from '../../components/MenuPopover';
+import { PATH_DASHBOARD } from '../../routes/paths';
 
 // ----------------------------------------------------------------------
 
@@ -22,17 +23,17 @@ const MENU_OPTIONS = [
   {
     label: 'Healthy',
     icon: heartFill,
-    linkTo: '/'
+    linkTo: PATH_DASHBOARD.health.root
   },
   {
     label: 'Safety',
     icon: safeMaskFill,
-    linkTo: '/'
+    linkTo: PATH_DASHBOARD.safety.root
   },
   {
     label: 'Security',
     icon: shieldFill,
-    linkTo: '/'
+    linkTo: PATH_DASHBOARD.security.root
   },
   {
     label: 'Administration',
@@ -42,7 +43,7 @@ const MENU_OPTIONS = [
   {
     label: 'Reports',
     icon: pieChartFill,
-    linkTo: '/'
+    linkTo: PATH_DASHBOARD.report.root
   }
 ];
 

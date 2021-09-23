@@ -79,11 +79,10 @@ export default function Health() {
       <Page title="User: Account Settings | Minimal-UI">
         <Container maxWidth={themeStretch ? false : 'lg'}>
           <HeaderBreadcrumbs
-            heading="Account"
+            heading="Health"
             links={[
               { name: 'Dashboard', href: PATH_DASHBOARD.root },
-              { name: 'Employee', href: PATH_DASHBOARD.user.root },
-              { name: userName }
+              { name: "health" }
             ]}
           />
 
@@ -170,11 +169,10 @@ export default function Health() {
       <Page title="User: Account Settings | Minimal-UI">
         <Container maxWidth={themeStretch ? false : 'lg'}>
           <HeaderBreadcrumbs
-            heading="Account"
+            heading="Health"
             links={[
               { name: 'Dashboard', href: PATH_DASHBOARD.root },
-              { name: 'Employee', href: PATH_DASHBOARD.user.root },
-              { name: userName }
+              { name: "health" }
             ]}
           />
 
