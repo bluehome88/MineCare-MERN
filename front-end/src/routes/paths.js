@@ -90,11 +90,6 @@ export const PATH_DASHBOARD = {
   },
   health: {
     root: path(ROOTS_DASHBOARD, '/health'),
-    forms: path(ROOTS_DASHBOARD, '/health/forms'),
-    visit: path(ROOTS_DASHBOARD, `/health/visit`),
-    history: path(ROOTS_DASHBOARD, `/health/history`),
-    emergency: path(ROOTS_DASHBOARD, `/health/emergency`),
-    education: path(ROOTS_DASHBOARD, `/health/education`)
   },  
   safety: {
     root: path(ROOTS_DASHBOARD, '/safety'),

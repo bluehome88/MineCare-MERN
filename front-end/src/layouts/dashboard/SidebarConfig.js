@@ -2,6 +2,7 @@ import { Icon } from '@iconify/react';
 import safeMaskFill from '@iconify/icons-ic/sharp-masks';
 import shieldFill from '@iconify/icons-eva/shield-fill';
 import pieChartFill from '@iconify/icons-eva/pie-chart-fill';
+import heartFill from '@iconify/icons-eva/heart-fill';
 // routes
 import { PATH_DASHBOARD } from '../../routes/paths';
 
@@ -28,13 +29,19 @@ const ICONS = {
   booking: getIcon('ic_booking'),
   safety: <Icon icon={safeMaskFill} width={24} height={24} />,
   report: <Icon icon={pieChartFill} width={24} height={24} />,
-  shield: <Icon icon={shieldFill} width={24} height={24} />
+  shield: <Icon icon={shieldFill} width={24} height={24} />,
+  heart: <Icon icon={heartFill} width={24} height={24} />
 };
 
 const sidebarConfig = [
   {
     subheader: 'General',
     items: [
+      {
+        title: 'Health',
+        path: PATH_DASHBOARD.health.root,
+        icon: ICONS.heart
+      },
       {
         title: 'Safety',
         path: PATH_DASHBOARD.safety.root,
@@ -81,18 +88,6 @@ const sidebarConfig = [
         children: [
           { title: 'Employee List', path: PATH_DASHBOARD.employee.list },
           { title: 'Add Employee', path: PATH_DASHBOARD.employee.newEmployee }
-        ]
-      },
-      {
-        title: 'Health',
-        path: PATH_DASHBOARD.health.root,
-        icon: ICONS.calendar,
-        children: [
-          { title: 'Form 0', path: PATH_DASHBOARD.health.forms },
-          { title: 'Followup Visit', path: PATH_DASHBOARD.health.visit },
-          { title: 'Health History', path: PATH_DASHBOARD.health.history },
-          { title: 'Emergency Care', path: PATH_DASHBOARD.health.emergency },
-          { title: 'Health Education', path: PATH_DASHBOARD.health.education }
         ]
       }
     ]

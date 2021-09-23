@@ -87,6 +87,8 @@ export default function Router() {
         { path: 'safety', element: <Safety /> },
         { path: 'security', element: <Security /> },
         { path: 'report', element: <Reports /> },
+        { path: 'landing', element: <LandingPage /> },
+        { path: 'health', element: <Health /> },
         {
           path: 'e-commerce',
           children: [
@@ -342,3 +344,5 @@ const GeneralNotification = Loadable(lazy(() => import('../pages/dashboard/Gener
 const Safety = Loadable(lazy(() => import('../pages/Safety')));
 const Security = Loadable(lazy(() => import('../pages/Security')));
 const Reports = Loadable(lazy(() => import('../pages/Reports')));
+const LandingPage = Loadable(lazy(() => import('../pages/LandingPage')));
+const Health = Loadable(lazy(() => import('../pages/dashboard/Health')));
