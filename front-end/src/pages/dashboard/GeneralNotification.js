@@ -1,5 +1,5 @@
 // material
-import { Container, Stack } from '@mui/material';
+import { Container } from '@mui/material';
 // hooks
 import useSettings from '../../hooks/useSettings';
 // components
@@ -18,10 +18,7 @@ export default function GeneralNotification() {
       <Container maxWidth={themeStretch ? false : 'xl'}>
         <HeaderBreadcrumbs
           heading="Notifications"
-          links={[
-          	{ name: 'Dashboard', href: PATH_DASHBOARD.root },
-            { name: 'Notifications' }
-          ]}
+          links={[{ name: 'Dashboard', href: PATH_DASHBOARD.root }, { name: 'Notifications' }]}
         />
       </Container>
     </Page>

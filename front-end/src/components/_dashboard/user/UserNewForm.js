@@ -15,7 +15,6 @@ import { PATH_DASHBOARD } from '../../../routes/paths';
 //
 import Label from '../../Label';
 import { UploadAvatar } from '../../upload';
-import countries from './countries';
 
 // ----------------------------------------------------------------------
 

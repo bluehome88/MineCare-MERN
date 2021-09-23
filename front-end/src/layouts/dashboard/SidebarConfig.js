@@ -6,10 +6,8 @@ import pieChartFill from '@iconify/icons-eva/pie-chart-fill';
 import { PATH_DASHBOARD } from '../../routes/paths';
 
 // components
-import Label from '../../components/Label';
 import SvgIconStyle from '../../components/SvgIconStyle';
 // ----------------------------------------------------------------------
-
 
 const getIcon = (name) => (
   <SvgIconStyle src={`/static/icons/navbar/${name}.svg`} sx={{ width: '100%', height: '100%' }} />
@@ -40,17 +38,17 @@ const sidebarConfig = [
       {
         title: 'Safety',
         path: PATH_DASHBOARD.safety.root,
-        icon: ICONS.safety,
+        icon: ICONS.safety
       },
       {
         title: 'Security',
         path: PATH_DASHBOARD.security.root,
-        icon: ICONS.shield,
+        icon: ICONS.shield
       },
       {
         title: 'Reports',
         path: PATH_DASHBOARD.report.root,
-        icon: ICONS.report,
+        icon: ICONS.report
       }
     ]
   },
@@ -95,8 +93,8 @@ const sidebarConfig = [
           { title: 'Emergency Care', path: PATH_DASHBOARD.health.emergency },
           { title: 'Health Education', path: PATH_DASHBOARD.health.education }
         ]
-      },
-      ]
+      }
+    ]
   }
 ];
 

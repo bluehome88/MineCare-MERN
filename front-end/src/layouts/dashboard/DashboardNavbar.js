@@ -8,12 +8,8 @@ import { Box, Stack, AppBar, Toolbar, IconButton, Typography } from '@mui/materi
 import useCollapseDrawer from '../../hooks/useCollapseDrawer';
 // components
 import { MHidden } from '../../components/@material-extend';
-import Searchbar from './Searchbar';
 import AccountPopover from './AccountPopover';
 import TopMenuPopover from './TopMenuPopover';
-import LanguagePopover from './LanguagePopover';
-import ContactsPopover from './ContactsPopover';
-import NotificationsPopover from './NotificationsPopover';
 
 // ----------------------------------------------------------------------
 

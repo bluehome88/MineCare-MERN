@@ -1,11 +1,9 @@
 import { filter } from 'lodash';
 import { Icon } from '@iconify/react';
-import { sentenceCase } from 'change-case';
 import { useState, useEffect } from 'react';
 import plusFill from '@iconify/icons-eva/plus-fill';
 import { Link as RouterLink } from 'react-router-dom';
 // material
-import { useTheme } from '@mui/material/styles';
 import {
   Card,
   Table,
@@ -30,7 +28,6 @@ import { PATH_DASHBOARD } from '../../routes/paths';
 import useSettings from '../../hooks/useSettings';
 // components
 import Page from '../../components/Page';
-import Label from '../../components/Label';
 import Scrollbar from '../../components/Scrollbar';
 import SearchNotFound from '../../components/SearchNotFound';
 import HeaderBreadcrumbs from '../../components/HeaderBreadcrumbs';
@@ -80,7 +77,6 @@ function applySortFilter(array, comparator, query) {
 
 export default function EmployeeList() {
   const { themeStretch } = useSettings();
-  const theme = useTheme();
   const dispatch = useDispatch();
   const { employeeList } = useSelector((state) => state.employee);
   const [page, setPage] = useState(0);

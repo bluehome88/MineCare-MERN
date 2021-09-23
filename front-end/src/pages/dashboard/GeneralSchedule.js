@@ -1,5 +1,5 @@
 // material
-import { Container, Stack } from '@mui/material';
+import { Container } from '@mui/material';
 // hooks
 import useSettings from '../../hooks/useSettings';
 // components
@@ -18,10 +18,7 @@ export default function GeneralSchedule() {
       <Container maxWidth={themeStretch ? false : 'xl'}>
         <HeaderBreadcrumbs
           heading="Schedule Management"
-          links={[
-          	{ name: 'Dashboard', href: PATH_DASHBOARD.root },
-            { name: 'Schedule' }
-          ]}
+          links={[{ name: 'Dashboard', href: PATH_DASHBOARD.root }, { name: 'Schedule' }]}
         />
       </Container>
     </Page>

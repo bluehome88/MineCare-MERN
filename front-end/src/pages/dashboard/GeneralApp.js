@@ -1,32 +1,22 @@
 // material
-import { Container, Grid, Stack, Typography } from '@mui/material';
+import { Container, Grid, Typography } from '@mui/material';
 // hooks
-import useAuth from '../../hooks/useAuth';
 import useSettings from '../../hooks/useSettings';
 // components
 import Page from '../../components/Page';
 import {
-  AppWelcome,
-  AppWidgets1,
-  AppWidgets2,
-  AppFeatured,
   AppNewInvoice,
-  AppTopAuthors,
   AppTopRelated,
-  AppAreaInstalled,
   AppTotalDownloads,
   AppTotalRoles,
   AppTotalInstalled,
-  AppCurrentDownload,
-  AppTotalActiveUsers,
-  AppTopInstalledCountries
+  AppTotalActiveUsers
 } from '../../components/_dashboard/general-app';
 
 // ----------------------------------------------------------------------
 
 export default function GeneralApp() {
   const { themeStretch } = useSettings();
-  const { user } = useAuth();
 
   return (
     <Page title="General: App | Minimal-UI">
