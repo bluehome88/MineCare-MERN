@@ -1,3 +1,3 @@
-export { default as UserListHead } from './UserListHead';
-export { default as UserListToolbar } from './UserListToolbar';
-export { default as UserMoreMenu } from './UserMoreMenu';
+export { default as EmployeeListHead } from './EmployeeListHead';
+export { default as EmployeeListToolbar } from './EmployeeListToolbar';
+export { default as EmployeeMoreMenu } from './EmployeeMoreMenu';

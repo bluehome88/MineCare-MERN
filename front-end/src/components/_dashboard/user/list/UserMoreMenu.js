@@ -38,12 +38,6 @@ export default function UserMoreMenu({ onDelete, userName }) {
         anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
         transformOrigin={{ vertical: 'top', horizontal: 'right' }}
       >
-        <MenuItem onClick={onDelete} sx={{ color: 'text.secondary' }}>
-          <ListItemIcon>
-            <Icon icon={trash2Outline} width={24} height={24} />
-          </ListItemIcon>
-          <ListItemText primary="Delete" primaryTypographyProps={{ variant: 'body2' }} />
-        </MenuItem>
 
         <MenuItem
           component={RouterLink}
@@ -54,6 +48,13 @@ export default function UserMoreMenu({ onDelete, userName }) {
             <Icon icon={editFill} width={24} height={24} />
           </ListItemIcon>
           <ListItemText primary="Edit" primaryTypographyProps={{ variant: 'body2' }} />
+        </MenuItem>
+
+        <MenuItem onClick={onDelete} sx={{ color: 'text.secondary' }}>
+          <ListItemIcon>
+            <Icon icon={editFill} width={24} height={24} />
+          </ListItemIcon>
+          <ListItemText primary="Reset Password" primaryTypographyProps={{ variant: 'body2' }} />
         </MenuItem>
       </Menu>
     </>

@@ -23,7 +23,7 @@ import {
 } from '@mui/material';
 // redux
 import { useDispatch, useSelector } from '../../redux/store';
-import { getUserList, deleteUser } from '../../redux/slices/user';
+import { getEmployeeList, deleteEmployee } from '../../redux/slices/employee';
 // routes
 import { PATH_DASHBOARD } from '../../routes/paths';
 // hooks
@@ -34,15 +34,16 @@ import Label from '../../components/Label';
 import Scrollbar from '../../components/Scrollbar';
 import SearchNotFound from '../../components/SearchNotFound';
 import HeaderBreadcrumbs from '../../components/HeaderBreadcrumbs';
-import { UserListHead, UserListToolbar, UserMoreMenu } from '../../components/_dashboard/user/list';
+import { EmployeeListHead, EmployeeListToolbar, EmployeeMoreMenu } from '../../components/_dashboard/employee/list';
 
 // ----------------------------------------------------------------------
 
 const TABLE_HEAD = [
   { id: 'name', label: 'Name', alignRight: false },
-  { id: 'email', label: 'Username/Email', alignRight: false },
+  { id: 'supervisor', label: 'Employeename/Email', alignRight: false },
   { id: 'deparment', label: 'Deparment', alignRight: false },
-  { id: 'role', label: 'Role', alignRight: false },
+  { id: 'formo', label: 'Form O Submitted', alignRight: false },
+  { id: 'formp', label: 'Form P Submitted', alignRight: false },
   { id: '' }
 ];
 
@@ -72,16 +73,16 @@ function applySortFilter(array, comparator, query) {
     return a[1] - b[1];
   });
   if (query) {
-    return filter(array, (_user) => _user.name.toLowerCase().indexOf(query.toLowerCase()) !== -1);
+    return filter(array, (_employee) => _employee.name.toLowerCase().indexOf(query.toLowerCase()) !== -1);
   }
   return stabilizedThis.map((el) => el[0]);
 }
 
-export default function UserList() {
+export default function EmployeeList() {
   const { themeStretch } = useSettings();
   const theme = useTheme();
   const dispatch = useDispatch();
-  const { userList } = useSelector((state) => state.user);
+  const { employeeList } = useSelector((state) => state.employee);
   const [page, setPage] = useState(0);
   const [order, setOrder] = useState('asc');
   const [selected, setSelected] = useState([]);
@@ -90,7 +91,7 @@ export default function UserList() {
   const [rowsPerPage, setRowsPerPage] = useState(5);
 
   useEffect(() => {
-    dispatch(getUserList());
+    dispatch(getEmployeeList());
   }, [dispatch]);
 
   const handleRequestSort = (event, property) => {
@@ -101,7 +102,7 @@ export default function UserList() {
 
   const handleSelectAllClick = (event) => {
     if (event.target.checked) {
-      const newSelecteds = userList.map((n) => n.name);
+      const newSelecteds = employeeList.map((n) => n.name);
       setSelected(newSelecteds);
       return;
     }
@@ -136,56 +137,56 @@ export default function UserList() {
     setFilterName(event.target.value);
   };
 
-  const handleDeleteUser = (userId) => {
-    dispatch(deleteUser(userId));
+  const handleDeleteEmployee = (employeeId) => {
+    dispatch(deleteEmployee(employeeId));
   };
 
-  const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - userList.length) : 0;
+  const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - employeeList.length) : 0;
 
-  const filteredUsers = applySortFilter(userList, getComparator(order, orderBy), filterName);
+  const filteredEmployees = applySortFilter(employeeList, getComparator(order, orderBy), filterName);
 
-  const isUserNotFound = filteredUsers.length === 0;
+  const isEmployeeNotFound = filteredEmployees.length === 0;
 
   return (
-    <Page title="User: List | Minimal-UI">
+    <Page title="Employee: List | Minimal-UI">
       <Container maxWidth={themeStretch ? false : 'lg'}>
         <HeaderBreadcrumbs
           heading="Employee List"
           links={[
             { name: 'Dashboard', href: PATH_DASHBOARD.root },
-            { name: 'User', href: PATH_DASHBOARD.user.root },
+            { name: 'Employee', href: PATH_DASHBOARD.employee.root },
             { name: 'List' }
           ]}
           action={
             <Button
               variant="contained"
               component={RouterLink}
-              to={PATH_DASHBOARD.user.newUser}
+              to={PATH_DASHBOARD.employee.newEmployee}
               startIcon={<Icon icon={plusFill} />}
             >
-              New User
+              New Employee
             </Button>
           }
         />
 
         <Card>
-          <UserListToolbar numSelected={selected.length} filterName={filterName} onFilterName={handleFilterByName} />
+          <EmployeeListToolbar numSelected={selected.length} filterName={filterName} onFilterName={handleFilterByName} />
 
           <Scrollbar>
             <TableContainer sx={{ minWidth: 800 }}>
               <Table>
-                <UserListHead
+                <EmployeeListHead
                   order={order}
                   orderBy={orderBy}
                   headLabel={TABLE_HEAD}
-                  rowCount={userList.length}
+                  rowCount={employeeList.length}
                   numSelected={selected.length}
                   onRequestSort={handleRequestSort}
                   onSelectAllClick={handleSelectAllClick}
                 />
                 <TableBody>
-                  {filteredUsers.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
-                    const { id, name, role, avatarUrl, department, email } = row;
+                  {filteredEmployees.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
+                    const { id, name, formatp, formato, department, email } = row;
                     const isItemSelected = selected.indexOf(name) !== -1;
 
                     return (
@@ -200,20 +201,14 @@ export default function UserList() {
                         <TableCell padding="checkbox">
                           <Checkbox checked={isItemSelected} onChange={(event) => handleClick(event, name)} />
                         </TableCell>
-                        <TableCell component="th" scope="row" padding="none">
-                          <Stack direction="row" alignItems="center" spacing={2}>
-                            <Avatar alt={name} src={avatarUrl} />
-                            <Typography variant="subtitle2" noWrap>
-                              {name}
-                            </Typography>
-                          </Stack>
-                        </TableCell>
+                        <TableCell align="left">{name}</TableCell>
                         <TableCell align="left">{email}</TableCell>
                         <TableCell align="left">{department}</TableCell>
-                        <TableCell align="left">{role}</TableCell>
+                        <TableCell align="left">{formato}</TableCell>
+                        <TableCell align="left">{formatp}</TableCell>
 
                         <TableCell align="right">
-                          <UserMoreMenu onDelete={() => handleDeleteUser(id)} userName={name} />
+                          <EmployeeMoreMenu onDelete={() => handleDeleteEmployee(id)} employeeName={name} />
                         </TableCell>
                       </TableRow>
                     );
@@ -224,7 +219,7 @@ export default function UserList() {
                     </TableRow>
                   )}
                 </TableBody>
-                {isUserNotFound && (
+                {isEmployeeNotFound && (
                   <TableBody>
                     <TableRow>
                       <TableCell align="center" colSpan={6} sx={{ py: 3 }}>
@@ -240,7 +235,7 @@ export default function UserList() {
           <TablePagination
             rowsPerPageOptions={[5, 10, 25]}
             component="div"
-            count={userList.length}
+            count={employeeList.length}
             rowsPerPage={rowsPerPage}
             page={page}
             onPageChange={handleChangePage}

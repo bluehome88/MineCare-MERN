@@ -5,9 +5,35 @@ import mockData from '../utils/mock-data';
 
 // ----------------------------------------------------------------------
 
+mock.onGet('/api/employee/profile').reply(() => {
+  const profile = {
+    id: mockData.id(1),
+    cover: mockData.image.cover(1),
+    position: 'UI Designer',
+    follower: random(99999),
+    following: random(99999),
+    quote: 'Tart I love sugar plum I love oat cake. Sweet roll caramels I love jujubes. Topping cake wafer..',
+    country: mockData.address.country(1),
+    email: mockData.email(1),
+    company: mockData.company(1),
+    school: mockData.company(2),
+    role: 'Manager',
+    facebookLink: `https://www.facebook.com/caitlyn.kerluke`,
+    instagramLink: `https://www.instagram.com/caitlyn.kerluke`,
+    linkedinLink: `https://www.linkedin.com/in/caitlyn.kerluke`,
+    twitterLink: `https://www.twitter.com/caitlyn.kerluke`
+  };
+
+  return [200, { profile }];
+});
+
+// ----------------------------------------------------------------------
+
 mock.onGet('/api/employee/all').reply(() => {
-  const users = [...Array(24)].map((_, index) => ({
+  const employees = [...Array(24)].map((_, index) => ({
     id: mockData.id(index),
+    avatarUrl: mockData.image.avatar(index),
+    cover: mockData.image.cover(index),
     name: mockData.name.fullName(index),
     follower: random(9999),
     following: random(9999),
@@ -15,22 +41,130 @@ mock.onGet('/api/employee/all').reply(() => {
     position: mockData.role(index)
   }));
 
-  return [200, { users }];
+  return [200, { employees }];
 });
 
 // ----------------------------------------------------------------------
 
-mock.onGet('/api/user/manage-users').reply(() => {
-  const users = [...Array(24)].map((_, index) => ({
+mock.onGet('/api/employee/manage-employees').reply(() => {
+  const employees = [...Array(24)].map((_, index) => ({
     id: mockData.id(index),
     name: mockData.name.fullName(index),
+    email: mockData.email(index),
+    phoneNumber: mockData.phoneNumber(index),
+    address: '908 Jack Locks',
+    country: mockData.address.country(index),
+    state: 'Virginia',
+    city: 'Rancho Cordova',
+    zipCode: '85807',
     department: 'Drilling',
+    company: mockData.company(index),
+    isVerified: mockData.boolean(index),
+    status: sample(['active', 'banned']) || 'active',
+    role: mockData.role(index),
     supervisor: 'Vishwa Ojha',
-    formo: 0,
-    formp:0
+    formato: 0,
+    formatp: 1
   }));
 
-  return [200, { users }];
+  return [200, { employees }];
+});
+
+// ----------------------------------------------------------------------
+
+mock.onGet('/api/employee/social/followers').reply(() => {
+  const followers = [...Array(18)].map((_, index) => ({
+    id: mockData.id(index),
+    avatarUrl: mockData.image.avatar(index),
+    name: mockData.name.fullName(index),
+    country: mockData.address.country(index),
+    isFollowed: mockData.boolean(index)
+  }));
+
+  return [200, { followers }];
+});
+
+// ----------------------------------------------------------------------
+
+mock.onGet('/api/employee/social/friends').reply(() => {
+  const friends = [...Array(18)].map((_, index) => ({
+    id: mockData.id(index),
+    avatarUrl: mockData.image.avatar(index),
+    name: mockData.name.fullName(index),
+    role: mockData.role(index)
+  }));
+
+  return [200, { friends }];
+});
+
+// ----------------------------------------------------------------------
+
+mock.onGet('/api/employee/social/gallery').reply(() => {
+  const gallery = [...Array(18)].map((_, index) => ({
+    id: mockData.id(index),
+    title: mockData.text.title(index),
+    postAt: mockData.time(index),
+    imageUrl: mockData.image.cover(index)
+  }));
+
+  return [200, { gallery }];
+});
+
+// ----------------------------------------------------------------------
+
+mock.onGet('/api/employee/account/cards').reply(() => {
+  const cards = [...Array(2)].map((_, index) => ({
+    id: mockData.id(index),
+    cardNumber:
+      (index === 0 && '**** **** **** 1234') || (index === 1 && '**** **** **** 5678') || '**** **** **** 5678',
+    cardType: (index === 0 && 'master_card') || (index === 1 && 'visa') || 'master_card'
+  }));
+
+  return [200, { cards }];
+});
+
+// ----------------------------------------------------------------------
+
+mock.onGet('/api/employee/account/address-book').reply(() => {
+  const addressBook = [...Array(4)].map((_, index) => ({
+    id: mockData.id(index),
+    name: mockData.name.fullName(index),
+    phone: mockData.phoneNumber(index),
+    country: mockData.address.country(index),
+    state: 'New Hampshire',
+    city: 'East Sambury',
+    street: '41256 Kamille Turnpike',
+    zipCode: '85807'
+  }));
+
+  return [200, { addressBook }];
+});
+
+// ----------------------------------------------------------------------
+
+mock.onGet('/api/employee/account/invoices').reply(() => {
+  const invoices = [...Array(10)].map((_, index) => ({
+    id: mockData.id(index),
+    createdAt: mockData.time(index),
+    price: mockData.number.price(index)
+  }));
+
+  return [200, { invoices }];
+});
+
+// ----------------------------------------------------------------------
+
+mock.onGet('/api/employee/account/notifications-settings').reply(() => {
+  const notifications = {
+    activityComments: true,
+    activityAnswers: true,
+    activityFollows: false,
+    applicationNews: true,
+    applicationProduct: false,
+    applicationBlog: false
+  };
+
+  return [200, { notifications }];
 });
 
 // ----------------------------------------------------------------------

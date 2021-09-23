@@ -34,7 +34,8 @@ export default function UserNewForm({ isEdit, currentEmployee }) {
     role: Yup.string().required('Role Number is required'),
     postal: Yup.string().required('Postal is required'),
     gender: Yup.string().required('Gender is required'),
-    department: Yup.string().required('Department is required')
+    department: Yup.string().required('Department is required'),
+    supervisor: Yup.string().required('Supervisor is required')
   });
 
   const formik = useFormik({
@@ -50,7 +51,8 @@ export default function UserNewForm({ isEdit, currentEmployee }) {
       gender: currentEmployee?.gender || '',
       role: currentEmployee?.role || '',
       department: currentEmployee?.department || '',
-      birthday: currentEmployee?.birthday || ''
+      birthday: currentEmployee?.birthday || '',
+      supervisor: currentEmployee?.supervisor || ''
     },
     validationSchema: NewUserSchema,
     onSubmit: async (values, { setSubmitting, resetForm, setErrors }) => {
@@ -174,7 +176,7 @@ export default function UserNewForm({ isEdit, currentEmployee }) {
 
                 <Box sx={{ mt: 3, display: 'flex', justifyContent: 'flex-end' }}>
                   <LoadingButton type="submit" variant="contained" loading={isSubmitting}>
-                    {!isEdit ? 'Create User' : 'Save Changes'}
+                    {!isEdit ? 'Create Employee' : 'Save Changes'}
                   </LoadingButton>
                 </Box>
               </Stack>
