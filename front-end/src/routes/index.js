@@ -84,7 +84,9 @@ export default function Router() {
         { path: 'booking', element: <GeneralBooking /> },
         { path: 'app/schedule', element: <GeneralSchedule /> },
         { path: 'app/notification', element: <GeneralNotification /> },
-
+        { path: 'safety', element: <Safety /> },
+        { path: 'security', element: <Security /> },
+        { path: 'report', element: <Reports /> },
         {
           path: 'e-commerce',
           children: [
@@ -337,3 +339,6 @@ const FormValidation = Loadable(lazy(() => import('../pages/components-overview/
 // New Pages
 const GeneralSchedule = Loadable(lazy(() => import('../pages/dashboard/GeneralSchedule')));
 const GeneralNotification = Loadable(lazy(() => import('../pages/dashboard/GeneralNotification')));
+const Safety = Loadable(lazy(() => import('../pages/Safety')));
+const Security = Loadable(lazy(() => import('../pages/Security')));
+const Reports = Loadable(lazy(() => import('../pages/Reports')));

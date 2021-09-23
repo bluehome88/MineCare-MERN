@@ -1,19 +1,29 @@
 // material
-import { Container, Grid, Typography } from '@mui/material';
+import { Container, Grid, Typography, Link } from '@mui/material';
+import { Link as RouterLink } from 'react-router-dom';
+import { styled } from '@mui/material/styles';
+
 // hooks
 import useSettings from '../../hooks/useSettings';
 // components
 import Page from '../../components/Page';
+import { PATH_DASHBOARD } from '../../routes/paths';
+
 import {
-  AppNewInvoice,
-  AppTopRelated,
-  AppTotalDownloads,
+  AppTotalActiveUsers,
+  AppTotalEmployees,
+  AppTotalDepartments,
   AppTotalRoles,
-  AppTotalInstalled,
-  AppTotalActiveUsers
+  AppSchedules,
+  AppNotifications
 } from '../../components/_dashboard/general-app';
 
 // ----------------------------------------------------------------------
+const LinkStyle = styled(Link)(({ theme }) => ({
+    textDecoration: `none !important`,
+    '&:hover *': { textDecoration: `none !important` }
+  }
+));
 
 export default function GeneralApp() {
   const { themeStretch } = useSettings();
@@ -26,27 +36,43 @@ export default function GeneralApp() {
       <Container maxWidth={themeStretch ? false : 'xl'}>
         <Grid container spacing={3}>
           <Grid item xs={12} md={3}>
-            <AppTotalActiveUsers />
+            <LinkStyle>
+              <Link component={RouterLink} to={PATH_DASHBOARD.user.list}>
+                <AppTotalActiveUsers />
+              </Link>
+            </LinkStyle>
           </Grid>
 
           <Grid item xs={12} md={3}>
-            <AppTotalInstalled />
+            <LinkStyle>
+              <Link component={RouterLink} to={PATH_DASHBOARD.employee.list}>
+                <AppTotalEmployees />
+              </Link>
+            </LinkStyle>
           </Grid>
 
           <Grid item xs={12} md={3}>
-            <AppTotalDownloads />
+            <LinkStyle>
+              <Link component={RouterLink} to={PATH_DASHBOARD.user.list}>
+                <AppTotalDepartments />
+              </Link>
+            </LinkStyle>            
           </Grid>
 
           <Grid item xs={12} md={3}>
-            <AppTotalRoles />
+            <LinkStyle>
+              <Link component={RouterLink} to={PATH_DASHBOARD.user.list}>
+                <AppTotalRoles />
+              </Link>
+            </LinkStyle>            
           </Grid>
 
           <Grid item xs={12} md={6}>
-            <AppNewInvoice />
+            <AppSchedules />
           </Grid>
 
           <Grid item xs={12} md={6}>
-            <AppTopRelated />
+            <AppNotifications />
           </Grid>
         </Grid>
       </Container>

@@ -1,17 +1,12 @@
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
-import { Link as RouterLink, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 // material
 import { alpha, styled } from '@mui/material/styles';
-import { Box, Link, Stack, Button, Drawer, Tooltip, Typography, CardActionArea } from '@mui/material';
+import { Box, Stack, Drawer, Tooltip, CardActionArea } from '@mui/material';
 // hooks
-import useAuth from '../../hooks/useAuth';
 import useCollapseDrawer from '../../hooks/useCollapseDrawer';
-// routes
-import { PATH_DASHBOARD, PATH_DOCS } from '../../routes/paths';
 // components
-import MainLogo from '../../components/MainLogo';
-import MyAvatar from '../../components/MyAvatar';
 import Scrollbar from '../../components/Scrollbar';
 import NavSection from '../../components/NavSection';
 import { MHidden } from '../../components/@material-extend';
@@ -23,6 +18,7 @@ import { DocIllustration } from '../../assets';
 
 const DRAWER_WIDTH = 280;
 const COLLAPSE_WIDTH = 102;
+const HEADER_HEIGHT = 92;
 
 const RootStyle = styled('div')(({ theme }) => ({
   [theme.breakpoints.up('lg')]: {
@@ -31,14 +27,6 @@ const RootStyle = styled('div')(({ theme }) => ({
       duration: theme.transitions.duration.complex
     })
   }
-}));
-
-const AccountStyle = styled('div')(({ theme }) => ({
-  display: 'flex',
-  alignItems: 'center',
-  padding: theme.spacing(2, 2.5),
-  borderRadius: theme.shape.borderRadiusSm,
-  backgroundColor: theme.palette.grey[500_12]
 }));
 
 // ----------------------------------------------------------------------
@@ -93,7 +81,6 @@ DashboardSidebar.propTypes = {
 
 export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
   const { pathname } = useLocation();
-  const { user } = useAuth();
 
   const { isCollapse, collapseClick, collapseHover, onToggleCollapse, onHoverEnter, onHoverLeave } =
     useCollapseDrawer();
@@ -108,7 +95,7 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
   const renderContent = (
     <Scrollbar
       sx={{
-        height: 1,
+        height: { lg: `calc(100% - ${HEADER_HEIGHT}px)` },
         '& .simplebar-content': {
           height: 1,
           display: 'flex',
@@ -119,18 +106,16 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
       <Stack
         spacing={3}
         sx={{
+          ml: `auto`,
           px: 2.5,
-          pt: 3,
-          pb: 2,
+          pt: 2,
+          pb: 0,
           ...(isCollapse && {
             alignItems: 'center'
           })
         }}
       >
         <Stack direction="row" alignItems="center" justifyContent="space-between">
-          <Box component={RouterLink} to="/" sx={{ display: 'inline-flex' }}>
-            <MainLogo />
-          </Box>
           <MHidden width="lgDown">
             {!isCollapse && <IconCollapse onToggleCollapse={onToggleCollapse} collapseClick={collapseClick} />}
           </MHidden>
@@ -180,6 +165,7 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
           onMouseLeave={onHoverLeave}
           PaperProps={{
             sx: {
+              mt: { lg: `${HEADER_HEIGHT}px` },
               width: DRAWER_WIDTH,
               bgcolor: 'background.default',
               ...(isCollapse && {
