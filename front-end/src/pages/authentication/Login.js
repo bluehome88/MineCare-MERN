@@ -65,19 +65,19 @@ export default function Login() {
               <Typography sx={{ color: 'text.secondary' }}>Enter your details below.</Typography>
             </Box>
 
-            <Tooltip title={capitalCase(method)}>
-              <Box component="img" src={`/static/auth/ic_${method}.png`} sx={{ width: 32, height: 32 }} />
+            <Tooltip>
+          <img src="/static/minecare-logo.svg" alt="login" width="150"/>
             </Tooltip>
           </Stack>
           <LoginForm />
-          <Stack width="smUp">
+          {/* <Stack width="smUp">
             <Typography variant="body2" align="center" sx={{ mt: 3 }}>
               Don’t have an account?&nbsp;
               <Link variant="subtitle2" component={RouterLink} to={PATH_AUTH.register}>
                 Get started
               </Link>
             </Typography>
-          </Stack>
+          </Stack> */}
         </ContentStyle>
       </Container>
     </RootStyle>

@@ -11,6 +11,8 @@ import { MHidden } from '../../components/@material-extend';
 import AccountPopover from './AccountPopover';
 import TopMenuPopover from './TopMenuPopover';
 import MainLogo from '../../components/MainLogo';
+import useAuth from '../../hooks/useAuth';
+import MyAvatar from '../../components/MyAvatar';
 // ----------------------------------------------------------------------
 
 const APPBAR_MOBILE = 64;
@@ -43,6 +45,7 @@ DashboardNavbar.propTypes = {
 
 export default function DashboardNavbar({ onOpenSidebar }) {
   const { isCollapse } = useCollapseDrawer();
+  const { user } = useAuth();
 
   return (
     <RootStyle
@@ -58,7 +61,7 @@ export default function DashboardNavbar({ onOpenSidebar }) {
             <Icon icon={menu2Fill} />
           </IconButton>
         </MHidden>
-        <MainLogo />
+        <MyAvatar />
         <Typography
           variant="h4"
           sx={{
@@ -67,7 +70,7 @@ export default function DashboardNavbar({ onOpenSidebar }) {
             display: 'block'
           }}
         >
-          MineCare Dashboard
+          {user.displayName}
         </Typography>
 
         <Box sx={{ flexGrow: 1 }} />
