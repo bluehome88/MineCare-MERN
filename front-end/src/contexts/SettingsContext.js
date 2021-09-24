@@ -11,17 +11,18 @@ const PRIMARY_COLOR = [
   // DEFAULT
   {
     name: 'default',
-    ...palette.light.primary
+    ...palette.dark.primary
   },
-  // PURPLE
+  // GREEN
   {
-    name: 'purple',
-    lighter: '#EBD6FD',
-    light: '#B985F4',
-    main: '#7635dc',
-    dark: '#431A9E',
-    darker: '#200A69',
+    name: 'green',
+    lighter: '#C8FACD',
+    light: '#5BE584',
+    main: '#00AB55',
+    dark: '#007B55',
+    darker: '#005249',
     contrastText: '#fff'
+    
   },
   // CYAN
   {
@@ -66,21 +67,21 @@ const PRIMARY_COLOR = [
 ];
 
 SetColor.propTypes = {
-  themeColor: PropTypes.oneOf(['default', 'purple', 'cyan', 'blue', 'orange', 'red'])
+  themeColor: PropTypes.oneOf(['default', 'green', 'cyan', 'blue', 'orange', 'red'])
 };
 
 function SetColor(themeColor) {
   let color;
   const DEFAULT = PRIMARY_COLOR[0];
-  const PURPLE = PRIMARY_COLOR[1];
+  const GREEN = PRIMARY_COLOR[1];
   const CYAN = PRIMARY_COLOR[2];
   const BLUE = PRIMARY_COLOR[3];
   const ORANGE = PRIMARY_COLOR[4];
   const RED = PRIMARY_COLOR[5];
 
   switch (themeColor) {
-    case 'purple':
-      color = PURPLE;
+    case 'green':
+      color = GREEN;
       break;
     case 'cyan':
       color = CYAN;
