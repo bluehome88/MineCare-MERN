@@ -4,6 +4,7 @@ import searchFill from '@iconify/icons-eva/search-fill';
 import { Icon } from '@iconify/react';
 import { useCallback } from 'react';
 import { Form, FormikProvider, useFormik } from 'formik';
+import { Link } from 'react-router-dom';
 // material
 import { Box, Typography, Grid, Card, Stack, TableContainer, TextField, Table, TableBody, TableRow, TableHead, TableCell, Button } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
@@ -74,6 +75,15 @@ export default function HealthForm() {
       <Form noValidate autoComplete="off" onSubmit={handleSubmit}>
         <Grid container spacing={3}>
           <Grid item xs={12} md={12}>
+            <Button
+              variant="contained"
+              component={Link}
+              to="/static/1.pdf"
+              target="_blank"
+              sx={{mb:2}}
+            >
+              View PDF
+            </Button>
             <Card sx={{ p: 3 }}>
               <Typography variant="h2" align="center" paragraph>
                 Search Employee

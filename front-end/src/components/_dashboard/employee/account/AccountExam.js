@@ -3,7 +3,8 @@ import { useSnackbar } from 'notistack';
 import plusFill from '@iconify/icons-eva/plus-fill';
 import { Icon } from '@iconify/react';
 import { useCallback } from 'react';
-import { useFormik } from 'formik';
+import { Form, FormikProvider, useFormik } from 'formik';
+import { LoadingButton } from '@mui/lab';
 // material
 import { Typography, Grid, Card, Stack, TableContainer, TextField, Table, TableBody, TableRow, TableHead, TableCell, Button } from '@mui/material';
 // hooks
@@ -41,7 +42,7 @@ export default function AccountExam() {
     onSubmit: async (values, { setErrors, setSubmitting }) => {
       try {
         await updateProfile({ ...values });
-        enqueueSnackbar('Update success', { variant: 'success' });
+        enqueueSnackbar('Generate PDF success', { variant: 'success' });
         if (isMountedRef.current) {
           setSubmitting(false);
         }
@@ -70,6 +71,8 @@ export default function AccountExam() {
   );
 
   return (
+    <FormikProvider value={formik}>
+      <Form noValidate autoComplete="off" onSubmit={handleSubmit}>
         <Grid container spacing={3}>
           <Grid item xs={12} md={12}>
             <Card sx={{ p: 3, textAlign:'center'}}>
@@ -114,14 +117,13 @@ export default function AccountExam() {
               >
                 RESET
               </Button>
-              <Button
-                variant="contained"
-                sx={{ float: 'right'}}
-              >
+              <LoadingButton type="submit" variant="contained" loading={isSubmitting} sx={{float:"right"}}>
                 SAVE
-              </Button>
+              </LoadingButton>
             </Card>
           </Grid>
         </Grid>
+      </Form>
+    </FormikProvider>
   );
 }
