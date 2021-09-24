@@ -26,6 +26,15 @@ UserNewForm.propTypes = {
 export default function UserNewForm({ isEdit, currentUser }) {
   const navigate = useNavigate();
   const { enqueueSnackbar } = useSnackbar();
+  const departments = [
+      "Drilling",
+      "Drilling"
+  ];
+
+  const role = [
+    "Manager",
+    "developer"
+];
 
   const NewUserSchema = Yup.object().shape({
     name: Yup.string().required('Name is required'),
@@ -208,19 +217,39 @@ export default function UserNewForm({ isEdit, currentUser }) {
 
                 <Stack direction={{ xs: 'column', sm: 'row' }} spacing={{ xs: 3, sm: 2 }}>
                   <TextField
+                    select
                     fullWidth
                     label="Department"
+                    placeholder="Department"
                     {...getFieldProps('department')}
+                    SelectProps={{ native: true }}
                     error={Boolean(touched.department && errors.department)}
                     helperText={touched.department && errors.department}
-                  />
+                  >
+                    <option value="" />
+                    {departments.map((option) => (
+                      <option key={option} value={option}>
+                        {option}
+                      </option>
+                    ))}
+                  </TextField>
                   <TextField
+                    select
                     fullWidth
                     label="Role"
+                    placeholder="Role"
                     {...getFieldProps('role')}
+                    SelectProps={{ native: true }}
                     error={Boolean(touched.role && errors.role)}
                     helperText={touched.role && errors.role}
-                  />
+                  >
+                    <option value="" />
+                    {departments.map((option) => (
+                      <option key={option} value={option}>
+                        {option}
+                      </option>
+                    ))}
+                  </TextField>
                 </Stack>
                 <FormControlLabel
                   labelPlacement="start"

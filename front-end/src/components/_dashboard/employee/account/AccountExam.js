@@ -86,17 +86,17 @@ export default function AccountExam() {
                 Report of medical examination under rule 29B in accordance with Form P1 of the Mines Rules 1955
               </Typography>
               <MotionInView variants={varFadeInUp} sx={{textAlign:"left", mb:4 }}>
-                <Typography sx={{ mb: 2, mx: 'auto' }}>
-                  Certificate No...............
+                <Typography sx={{ mb: 2, mx: 'auto', lineHeight:3}}>
+                  Certificate No<TextField id="standard-basic" label="" variant="standard" color="warning" sx={{ ml:1 }}/>
                 </Typography>
-                <Typography sx={{ mb: 1, mx: 'auto' }}>
-                  Certified that Shri/Shrimati*............to be employed as trade apprentice in ........ has been examined for an initial medical examination in accordance with Form P1 of the Mines Rules 1955. He/she* appears to be ........ years of age. The findings of the examining authority are given in the attached sheet. It is considered that Shri/Shrimati*................
+                <Typography sx={{ mb: 1, mx: 'auto' , lineHeight:3}}>
+                  Certified that Shri/Shrimati*<TextField id="standard-basic" label="" variant="standard" color="warning" sx={{ ml:1 }}/>to be employed as trade apprentice in <TextField id="standard-basic" label="" variant="standard" color="warning" sx={{ ml:1 }}/> has been examined for an initial medical examination in accordance with Form P1 of the Mines Rules 1955. He/she* appears to be <TextField id="standard-basic" label="" variant="standard" color="warning" sx={{ ml:1 }}/> years of age. The findings of the examining authority are given in the attached sheet. It is considered that Shri/Shrimati*<TextField id="standard-basic" label="" variant="standard" color="warning" sx={{ ml:1 }}/>
                 </Typography>
                 <Typography sx={{ mb: 2, mx: 'auto' }}>
                   (a)* is medically fit for any employment/ graduate/technician apprentice training in mines.
                 </Typography>
-                <Typography sx={{ mb: 2, mx: 'auto' }}>
-                  (b)* is suffering from .................  and is medically unfit for
+                <Typography sx={{ mb: 2, mx: 'auto' , lineHeight:3}}>
+                  (b)* is suffering from <TextField id="standard-basic" label="" variant="standard" color="warning" sx={{ ml:1 }}/>  and is medically unfit for
                 </Typography>
                 <Typography sx={{ mb: 2, mx: 'auto', ml:10 }}>
                   (1) any employment in mine; or
@@ -104,8 +104,8 @@ export default function AccountExam() {
                 <Typography sx={{ mb: 2, mx: 'auto', ml:10 }}>
                   (2) any employment below ground; or
                 </Typography>
-                <Typography sx={{ mb: 2, mx: 'auto', ml:10 }}>
-                  (3) any employment or work .......
+                <Typography sx={{ mb: 2, mx: 'auto', ml:10 , lineHeight:3}}>
+                  (3) any employment or work <TextField id="standard-basic" label="" variant="standard" color="warning" sx={{ ml:1 }}/>
                 </Typography>
               </MotionInView>
               <Button
