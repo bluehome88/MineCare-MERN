@@ -16,7 +16,7 @@ import MyAvatar from '../../components/MyAvatar';
 // ----------------------------------------------------------------------
 
 const APPBAR_MOBILE = 64;
-const APPBAR_DESKTOP = 92;
+const APPBAR_DESKTOP = 70;
 
 const RootStyle = styled(AppBar)(({ theme }) => ({
   boxShadow: 'none',
@@ -61,7 +61,7 @@ export default function DashboardNavbar({ onOpenSidebar }) {
             <Icon icon={menu2Fill} />
           </IconButton>
         </MHidden>
-        <MyAvatar />
+            <img src="/static/index.svg" alt="login" width="64" sx={{ ml: "auto", mr: "auto" }}/>
         <Typography
           variant="h4"
           sx={{
@@ -70,7 +70,7 @@ export default function DashboardNavbar({ onOpenSidebar }) {
             display: 'block'
           }}
         >
-          {user.displayName}
+          Western coalfields Limited
         </Typography>
 
         <Box sx={{ flexGrow: 1 }} />

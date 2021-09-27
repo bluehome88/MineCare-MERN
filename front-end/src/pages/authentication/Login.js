@@ -22,11 +22,16 @@ const RootStyle = styled(Page)(({ theme }) => ({
 
 const SectionStyle = styled(Card)(({ theme }) => ({
   width: '100%',
-  maxWidth: 464,
+  maxWidth: 650,
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
   margin: theme.spacing(2, 0, 2, 2)
+}));
+
+const CenterImageStyle = styled('Page')(({ theme }) => ({
+  marginLeft: "auto",
+  marginRight:"auto",
 }));
 
 const ContentStyle = styled('div')(({ theme }) => ({
@@ -48,10 +53,15 @@ export default function Login() {
     <RootStyle title="Login | Minimal-UI">
       <MHidden width="mdDown">
         <SectionStyle>
-          <Typography variant="h3" sx={{ px: 5, mt: 10, mb: 5 }}>
-            Hi, Welcome Back
+        	<CenterImageStyle>
+            <img src="/static/minecare-logo.svg" alt="login" width="350" sx={{ ml: "auto", mr: "auto" }}/>
+          </CenterImageStyle>
+          <Typography variant="h2" sx={{ mt: 10 }} style={{textAlign:"center"}}>
+            A Solution for Occupational Health_Safety
           </Typography>
-          <img src="/static/illustrations/illustration_login.png" alt="login" />
+          <Typography variant="h4" sx={{ mt: 10, mb: 5 }} style={{textAlign:"center", color:"#7635dc"}}>
+            First-of-it`s kind unified digital platform for mining Industries
+          </Typography>
         </SectionStyle>
       </MHidden>
 
@@ -60,14 +70,11 @@ export default function Login() {
           <Stack direction="row" alignItems="center" sx={{ mb: 5 }}>
             <Box sx={{ flexGrow: 1 }}>
               <Typography variant="h4" gutterBottom>
-                Sign in to MineCare
+                Sign In
               </Typography>
-              <Typography sx={{ color: 'text.secondary' }}>Enter your details below.</Typography>
+              <Typography sx={{ color: 'text.secondary' }}>Enter your detail to sign in MineCare.</Typography>
             </Box>
 
-            <Tooltip>
-          <img src="/static/minecare-logo.svg" alt="login" width="150"/>
-            </Tooltip>
           </Stack>
           <LoginForm />
           {/* <Stack width="smUp">

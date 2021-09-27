@@ -1,7 +1,7 @@
 import { Icon } from '@iconify/react';
 import { useRef, useState } from 'react';
 import personFill from '@iconify/icons-eva/person-fill';
-import settings2Fill from '@iconify/icons-eva/settings-2-fill';
+import menu2Fill from '@iconify/icons-eva/menu-2-fill';
 import heartFill from '@iconify/icons-eva/heart-fill';
 import shieldFill from '@iconify/icons-eva/shield-fill';
 import safeMaskFill from '@iconify/icons-ic/sharp-masks';
@@ -15,7 +15,7 @@ import { Box, MenuItem } from '@mui/material';
 // components
 import { MIconButton } from '../../components/@material-extend';
 import MenuPopover from '../../components/MenuPopover';
-import { PATH_DASHBOARD } from '../../routes/paths';
+import { PATH_DASHBOARD, PATH_HEALTH } from '../../routes/paths';
 
 // ----------------------------------------------------------------------
 
@@ -23,7 +23,7 @@ const MENU_OPTIONS = [
   {
     label: 'Healthy',
     icon: heartFill,
-    linkTo: PATH_DASHBOARD.health.root
+    linkTo: PATH_HEALTH.root
   },
   {
     label: 'Safety',
@@ -38,7 +38,7 @@ const MENU_OPTIONS = [
   {
     label: 'Administration',
     icon: personFill,
-    linkTo: '/'
+    linkTo: '/admin'
   },
   {
     label: 'Reports',
@@ -73,7 +73,7 @@ export default function TopMenuPopover() {
           })
         }}
       >
-        <Icon icon={settings2Fill} width={20} height={20} />
+        <Icon icon={menu2Fill} width={20} height={20} />
       </MIconButton>
 
       <MenuPopover open={open} onClose={handleClose} anchorEl={anchorRef.current} sx={{ width: 220 }}>

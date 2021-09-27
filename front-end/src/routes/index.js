@@ -2,6 +2,7 @@ import { Suspense, lazy } from 'react';
 import { Navigate, useRoutes, useLocation } from 'react-router-dom';
 // layouts
 import MainLayout from '../layouts/main';
+import HealthLayout from '../layouts/dashboard/HealthLayout';
 import DashboardLayout from '../layouts/dashboard';
 import LogoOnlyLayout from '../layouts/LogoOnlyLayout';
 // guards
@@ -87,7 +88,6 @@ export default function Router() {
         { path: 'safety', element: <Safety /> },
         { path: 'security', element: <Security /> },
         { path: 'report', element: <Reports /> },
-        { path: 'landing', element: <LandingPage /> },
         { path: 'health', element: <Health /> },
         {
           path: 'e-commerce',
@@ -163,6 +163,8 @@ export default function Router() {
       children: [
         { path: 'coming-soon', element: <ComingSoon /> },
         { path: 'maintenance', element: <Maintenance /> },
+        { path: 'landing', element: <LandingPage /> },
+        { path: 'admin', element: <DashboardPanel /> },
         { path: 'pricing', element: <Pricing /> },
         { path: 'payment', element: <Payment /> },
         { path: '500', element: <Page500 /> },
@@ -178,7 +180,7 @@ export default function Router() {
         </AuthGuard>
       ),
       children: [
-        { element: <Navigate to="/dashboard/landing" replace /> },
+        { element: <Navigate to="/landing" replace /> },
         { path: 'main', element: <MainLayout /> },
         { path: 'about-us', element: <About /> },
         { path: 'contact-us', element: <Contact /> },
@@ -240,7 +242,30 @@ export default function Router() {
         }
       ]
     },
-    { path: '*', element: <Navigate to="/404" replace /> }
+    { path: '*', element: <Navigate to="/404" replace /> },
+    // Health Routes
+    {
+      path: 'health',
+      element: (
+        <AuthGuard>
+          <HealthLayout />
+        </AuthGuard>
+      ),
+      children: [
+        { element: <Navigate to="/health/main" replace /> },
+        { path: 'main', element: <Health /> },
+        { path: 'form_o', element: <HealthFormO /> },
+        { path: 'form_o/health_exam', element: <HealthExam /> },
+        { path: 'form_o/form_o_doc', element: <FormO /> },
+        { path: 'visit', element: <FollowupVisit /> },
+        { path: 'history', element: <HealthHistory /> },
+        { path: 'checkup', element: <HealthCheck /> },
+        { path: 'checkup/:userName/note', element: <CheckNote /> },
+        { path: 'checkup/formp', element: <FormP /> },
+        { path: 'education', element: <HealthFormO /> },
+        { path: 'history/:userName/profile', element: <EmployeeProfile /> }
+      ]
+    }
   ]);
 }
 
@@ -280,6 +305,7 @@ const Calendar = Loadable(lazy(() => import('../pages/dashboard/Calendar')));
 const Kanban = Loadable(lazy(() => import('../pages/dashboard/Kanban')));
 // Main
 const About = Loadable(lazy(() => import('../pages/About')));
+const DashboardPanel = Loadable(lazy(() => import('../pages/Dashboard_Panel')));
 const Contact = Loadable(lazy(() => import('../pages/Contact')));
 const Faqs = Loadable(lazy(() => import('../pages/Faqs')));
 const ComingSoon = Loadable(lazy(() => import('../pages/ComingSoon')));
@@ -346,3 +372,11 @@ const Security = Loadable(lazy(() => import('../pages/Security')));
 const Reports = Loadable(lazy(() => import('../pages/Reports')));
 const LandingPage = Loadable(lazy(() => import('../pages/LandingPage')));
 const Health = Loadable(lazy(() => import('../pages/dashboard/Health')));
+const HealthFormO = Loadable(lazy(() => import('../pages/dashboard/HealthFormO')));
+const HealthHistory = Loadable(lazy(() => import('../pages/dashboard/HealthHistory')));
+const FollowupVisit = Loadable(lazy(() => import('../pages/dashboard/FollowupVisit')));
+const HealthExam = Loadable(lazy(() => import('../pages/dashboard/HealthExam')));
+const FormO = Loadable(lazy(() => import('../pages/dashboard/Form_O')));
+const FormP = Loadable(lazy(() => import('../pages/dashboard/Form_P')));
+const CheckNote = Loadable(lazy(() => import('../pages/dashboard/CheckNote')));
+const HealthCheck = Loadable(lazy(() => import('../pages/dashboard/HealthCheck')));

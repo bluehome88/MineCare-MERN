@@ -1,4 +1,5 @@
 // material
+import { useState } from 'react';
 import { styled } from '@mui/material/styles';
 import { Box, Grid, Switch, Container, Typography, Card, Button } from '@mui/material';
 import FavoriteIcon from '@mui/icons-material/Favorite';
@@ -7,8 +8,9 @@ import HealthAndSafetyIcon from '@mui/icons-material/HealthAndSafety';
 import { Link as RouterLink } from 'react-router-dom';
 // components
 import Page from '../components/Page';
+import DashboardNavbar from '../layouts/dashboard/DashboardNavbar';
 import { PlanFreeIcon, PlanStarterIcon, PlanPremiumIcon } from '../assets';
-import { PATH_DASHBOARD } from '../routes/paths';
+import { PATH_HEALTH } from '../routes/paths';
 
 // ----------------------------------------------------------------------
 
@@ -66,8 +68,10 @@ const RootStyle = styled(Page)(({ theme }) => ({
 // ----------------------------------------------------------------------
 
 export default function LandingPage() {
+  const [setOpen] = useState(false);
   return (
-    <RootStyle title="Pricing | Minimal-UI">
+    <RootStyle title="MineCare | Minimal-UI">
+      <DashboardNavbar onOpenSidebar={() => setOpen(true)} />
       <Container maxWidth="lg">
         <Typography variant="h2" align="center" paragraph>
           MineCare
@@ -78,7 +82,7 @@ export default function LandingPage() {
 
         <Grid container spacing={3}>
           <Grid item xs={4} md={4}>
-            <Button component={RouterLink} to={PATH_DASHBOARD.health.root}>
+            <Button component={RouterLink} to={PATH_HEALTH.root}>
               <Card sx={{ p:4, textAlign:"center" }}>
                 <FavoriteIcon sx={{fontSize:80, color:"red"}}/>
                 <Typography variant="h3" align="center" sx={{m:3, mb:4}}>
@@ -91,7 +95,7 @@ export default function LandingPage() {
             </Button>
           </Grid>
           <Grid item xs={4} md={4}>
-            <Button component={RouterLink} to={PATH_DASHBOARD.safety.root}>
+            <Button component={RouterLink} to={PATH_HEALTH.root}>
               <Card sx={{ p:4, textAlign:"center" }}>
                 <HealthAndSafetyIcon sx={{fontSize:80, color:"blue"}}/>
                 <Typography variant="h3" align="center" sx={{m:3, mb:4}}>
@@ -104,7 +108,7 @@ export default function LandingPage() {
             </Button>
           </Grid>
           <Grid item xs={4} md={4}>
-            <Button component={RouterLink} to={PATH_DASHBOARD.security.root}>
+            <Button component={RouterLink} to={PATH_HEALTH.root}>
               <Card sx={{ p:4, textAlign:"center" }}>
                 <SecurityIcon sx={{fontSize:80, color:"green"}}/>
                 <Typography variant="h3" align="center" sx={{m:3, mb:4}}>

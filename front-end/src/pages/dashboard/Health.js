@@ -41,160 +41,77 @@ export default function Health() {
     dispatch(getProfile());
   }, [dispatch]);
 
-  const ACCOUNT_TABS = [
-    {
-      value: 'Form O',
-      icon: <Icon icon={roundReceipt} width={20} height={20} />,
-      component: <HealthForm />
-    },
-    {
-      value: 'Followup Visit',
-      icon: <Icon icon={roundReceipt} width={20} height={20} />,
-      component: <HealthFollow />
-    },
-    {
-      value: 'Health History',
-      icon: <Icon icon={roundReceipt} width={20} height={20} />,
-      component: <HealthForm />
-    },
-    {
-      value: 'Health Checkup',
-      icon: <Icon icon={roundReceipt} width={20} height={20} />,
-      component: <HealthForm />
-    },
-    {
-      value: 'Health Education',
-      icon: <Icon icon={roundReceipt} width={20} height={20} />,
-      component: <HealthForm />
-    }
-    
-  ];
+  return(
+    <Page title="User: Account Settings | Minimal-UI">
+      <Container maxWidth={themeStretch ? false : 'lg'}>
+        <HeaderBreadcrumbs
+          heading="Health"
+          links={[
+            { name: 'Dashboard', href: PATH_DASHBOARD.root },
+            { name: "health" }
+          ]}
+        />
 
-  const handleChangeTab = (event, newValue) => {
-    setCurrentTab(newValue);
-  };
+        <Typography variant="h2" align="center" paragraph sx={{mt:5}}>
+          MineCare
+        </Typography>
+        <Typography variant="h3" align="center" sx={{ color: 'text.secondary', mb:7 }}>
+          Lorem ipsum dolor sit amet, consectetue adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+        </Typography>
 
-  if(currentTab === "")
-    return(
-      <Page title="User: Account Settings | Minimal-UI">
-        <Container maxWidth={themeStretch ? false : 'lg'}>
-          <HeaderBreadcrumbs
-            heading="Health"
-            links={[
-              { name: 'Dashboard', href: PATH_DASHBOARD.root },
-              { name: "health" }
-            ]}
-          />
-
-          <Stack spacing={5}>
-            <Tabs
-              value={currentTab}
-              scrollButtons="auto"
-              variant="scrollable"
-              allowScrollButtonsMobile
-              onChange={handleChangeTab}
-            >
-              {ACCOUNT_TABS.map((tab) => (
-                <Tab disableRipple key={tab.value} label={capitalCase(tab.value)} icon={tab.icon} value={tab.value} />
-              ))}
-            </Tabs>
-
-            {ACCOUNT_TABS.map((tab) => {
-              const isMatched = tab.value === currentTab;
-              return isMatched && <Box key={tab.value}>{tab.component}</Box>;
-            })}
-          </Stack>
-          <Typography variant="h2" align="center" paragraph sx={{mt:5}}>
-            MineCare
-          </Typography>
-          <Typography variant="h3" align="center" sx={{ color: 'text.secondary', mb:7 }}>
-            Lorem ipsum dolor sit amet, consectetue adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
-          </Typography>
-
-          <Grid container spacing={3}>
-            <Grid item xs={4} md={4}>
-              <Button>
-                <Card sx={{ p:4, textAlign:"center" }}>
-                  <Typography variant="h3" align="center" sx={{m:3, mb:4}}>
-                    Form O Summary
-                  </Typography>
-                  <PieChartIcon sx={{fontSize:80, color:"red"}}/>
-                  <Typography align="left" sx={{ml:3, mb:1, mt:2}}>
-                    30$ Pending
-                  </Typography>
-                  <Typography align="left" sx={{ml:3, mb:1}}>
-                    70% Completed
-                  </Typography>
-                </Card>
-              </Button>
-            </Grid>
-            <Grid item xs={4} md={4}>
-              <Button>
-                <Card sx={{ p:4, textAlign:"center" }}>
-                  <Typography variant="h3" align="center" sx={{m:3, mb:4}}>
-                    Revisit Summary
-                  </Typography>
-                  <PieChartIcon sx={{fontSize:80, color:"green"}}/>
-                  <Typography align="left" sx={{ml:3, mb:1, mt:2}}>
-                    30% Not Visited
-                  </Typography>
-                  <Typography align="left" sx={{ml:3, mb:1}}>
-                    70% Visited
-                  </Typography>
-                </Card>
-              </Button>
-            </Grid>
-            <Grid item xs={4} md={4}>
-              <Button>
-                <Card sx={{ p:4, textAlign:"center" }}>
-                  <Typography variant="h3" align="center" sx={{m:3, mb:4}}>
-                    Disease Summary
-                  </Typography>
-                  <PieChartIcon sx={{fontSize:80, color:"grey"}}/>
-                  <Typography align="left" sx={{ml:3, mb:1, mt:2}}>
-                    20% Diabities
-                  </Typography>
-                  <Typography align="left" sx={{ml:3, mb:1}}>
-                    80% BP
-                  </Typography>
-                </Card>
-              </Button>
-            </Grid>
+        <Grid container spacing={3}>
+          <Grid item xs={4} md={4}>
+            <Button>
+              <Card sx={{ p:4, textAlign:"center" }}>
+                <Typography variant="h3" align="center" sx={{m:3, mb:4}}>
+                  Form O Summary
+                </Typography>
+                <PieChartIcon sx={{fontSize:80, color:"red"}}/>
+                <Typography align="left" sx={{ml:3, mb:1, mt:2}}>
+                  30$ Pending
+                </Typography>
+                <Typography align="left" sx={{ml:3, mb:1}}>
+                  70% Completed
+                </Typography>
+              </Card>
+            </Button>
           </Grid>
-        </Container>
-      </Page>
+          <Grid item xs={4} md={4}>
+            <Button>
+              <Card sx={{ p:4, textAlign:"center" }}>
+                <Typography variant="h3" align="center" sx={{m:3, mb:4}}>
+                  Revisit Summary
+                </Typography>
+                <PieChartIcon sx={{fontSize:80, color:"green"}}/>
+                <Typography align="left" sx={{ml:3, mb:1, mt:2}}>
+                  30% Not Visited
+                </Typography>
+                <Typography align="left" sx={{ml:3, mb:1}}>
+                  70% Visited
+                </Typography>
+              </Card>
+            </Button>
+          </Grid>
+          <Grid item xs={4} md={4}>
+            <Button>
+              <Card sx={{ p:4, textAlign:"center" }}>
+                <Typography variant="h3" align="center" sx={{m:3, mb:4}}>
+                  Disease Summary
+                </Typography>
+                <PieChartIcon sx={{fontSize:80, color:"grey"}}/>
+                <Typography align="left" sx={{ml:3, mb:1, mt:2}}>
+                  20% Diabities
+                </Typography>
+                <Typography align="left" sx={{ml:3, mb:1}}>
+                  80% BP
+                </Typography>
+              </Card>
+            </Button>
+          </Grid>
+        </Grid>
+      </Container>
+    </Page>
+  
+  );
     
-    );
-    return(
-      <Page title="User: Account Settings | Minimal-UI">
-        <Container maxWidth={themeStretch ? false : 'lg'}>
-          <HeaderBreadcrumbs
-            heading="Health"
-            links={[
-              { name: 'Dashboard', href: PATH_DASHBOARD.root },
-              { name: "health" }
-            ]}
-          />
-
-          <Stack spacing={5}>
-            <Tabs
-              value={currentTab}
-              scrollButtons="auto"
-              variant="scrollable"
-              allowScrollButtonsMobile
-              onChange={handleChangeTab}
-            >
-              {ACCOUNT_TABS.map((tab) => (
-                <Tab disableRipple key={tab.value} label={capitalCase(tab.value)} icon={tab.icon} value={tab.value} />
-              ))}
-            </Tabs>
-
-            {ACCOUNT_TABS.map((tab) => {
-              const isMatched = tab.value === currentTab;
-              return isMatched && <Box key={tab.value}>{tab.component}</Box>;
-            })}
-          </Stack>
-        </Container>
-      </Page>
-    );
 }

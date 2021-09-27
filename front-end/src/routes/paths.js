@@ -6,6 +6,7 @@ function path(root, sublink) {
 
 const ROOTS_AUTH = '/auth';
 const ROOTS_DASHBOARD = '/dashboard';
+const ROOTS_HEALTH = '/health';
 
 // ----------------------------------------------------------------------
 
@@ -23,6 +24,7 @@ export const PATH_PAGE = {
   comingSoon: '/coming-soon',
   maintenance: '/maintenance',
   pricing: '/pricing',
+  landing: '/landing',
   payment: '/payment',
   about: '/about-us',
   contact: '/contact-us',
@@ -30,6 +32,30 @@ export const PATH_PAGE = {
   page404: '/404',
   page500: '/500',
   components: '/components'
+};
+
+export const PATH_HEALTH = {
+  root: ROOTS_HEALTH,
+  form_o: {
+    root: path(ROOTS_HEALTH, '/form_o'),
+    form_o_doc: path(ROOTS_HEALTH, '/form_o/form_o_doc'),
+    health_exam: path(ROOTS_HEALTH, '/form_o/health_exam'),
+  },  
+  visit: {
+    root: path(ROOTS_HEALTH, '/visit'),
+  },
+  history: {
+    root: path(ROOTS_HEALTH, '/history'),
+    healthhistory:path(ROOTS_HEALTH, '/history/reece-chung/profile'),
+  },
+  checkup: {
+    root: path(ROOTS_HEALTH, '/checkup'),
+    form_p_doc: path(ROOTS_HEALTH, '/checkup/formp'),
+    note: path(ROOTS_HEALTH, '/checkup/reece-chung/note'),
+  },
+  education: {
+    root: path(ROOTS_HEALTH, '/education'),
+  }
 };
 
 export const PATH_DASHBOARD = {
