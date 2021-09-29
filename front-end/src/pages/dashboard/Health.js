@@ -42,7 +42,7 @@ export default function Health() {
   }, [dispatch]);
 
   return(
-    <Page title="User: Account Settings | Minimal-UI">
+    <Page title="Health | MineCare">
       <Container maxWidth={themeStretch ? false : 'lg'}>
         <HeaderBreadcrumbs
           heading="Health"

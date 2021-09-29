@@ -39,6 +39,7 @@ export const PATH_HEALTH = {
   form_o: {
     root: path(ROOTS_HEALTH, '/form_o'),
     form_o_doc: path(ROOTS_HEALTH, '/form_o/form_o_doc'),
+    form_o_doc1: path(ROOTS_HEALTH, '/form_o/form_o_doc1'),
     health_exam: path(ROOTS_HEALTH, '/form_o/health_exam'),
   },  
   visit: {

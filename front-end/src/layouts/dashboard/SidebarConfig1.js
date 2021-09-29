@@ -40,22 +40,22 @@ const sidebarConfig1 = [
       {
         title: 'Form O',
         path: PATH_HEALTH.form_o.root,
-        icon: ICONS.heart
+        icon: ICONS.blog
       },
       {
         title: 'Followup Visit',
         path: PATH_HEALTH.visit.root,
-        icon: ICONS.heart
+        icon: ICONS.report
       },
       {
         title: 'Health History',
         path: PATH_HEALTH.history.root,
-        icon: ICONS.heart
+        icon: ICONS.dashboard
       },
       {
         title: 'Health Checkup',
         path: PATH_HEALTH.checkup.root,
-        icon: ICONS.heart
+        icon: ICONS.booking
       },
       {
         title: 'Health Education',

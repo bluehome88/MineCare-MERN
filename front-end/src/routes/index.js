@@ -257,6 +257,8 @@ export default function Router() {
         { path: 'form_o', element: <HealthFormO /> },
         { path: 'form_o/health_exam', element: <HealthExam /> },
         { path: 'form_o/form_o_doc', element: <FormO /> },
+        { path: 'form_o/form_o_doc1', element: <FormO1 /> },
+        { path: 'form_o/form_o_doc2', element: <FormO2 /> },
         { path: 'visit', element: <FollowupVisit /> },
         { path: 'history', element: <HealthHistory /> },
         { path: 'checkup', element: <HealthCheck /> },
@@ -377,6 +379,8 @@ const HealthHistory = Loadable(lazy(() => import('../pages/dashboard/HealthHisto
 const FollowupVisit = Loadable(lazy(() => import('../pages/dashboard/FollowupVisit')));
 const HealthExam = Loadable(lazy(() => import('../pages/dashboard/HealthExam')));
 const FormO = Loadable(lazy(() => import('../pages/dashboard/Form_O')));
+const FormO1 = Loadable(lazy(() => import('../pages/dashboard/Form_O1')));
+const FormO2 = Loadable(lazy(() => import('../pages/dashboard/Form_O2')));
 const FormP = Loadable(lazy(() => import('../pages/dashboard/Form_P')));
 const CheckNote = Loadable(lazy(() => import('../pages/dashboard/CheckNote')));
 const HealthCheck = Loadable(lazy(() => import('../pages/dashboard/HealthCheck')));

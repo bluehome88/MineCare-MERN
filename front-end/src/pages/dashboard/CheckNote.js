@@ -69,7 +69,7 @@ export default function CheckNote() {
     setValue(event.target.value);
   };
   return(
-    <Page title="User: Account Settings | Minimal-UI">
+    <Page title="Emergency Care Search | MineCare">
       <Container maxWidth={themeStretch ? false : 'lg'}>
 
       	<FormikProvider value={formik}>

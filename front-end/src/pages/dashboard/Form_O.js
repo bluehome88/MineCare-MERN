@@ -12,12 +12,14 @@ import { LoadingButton } from '@mui/lab';
 import { PATH_HEALTH } from '../../routes/paths';
 // hooks
 import useSettings from '../../hooks/useSettings';
+import { fData } from '../../utils/formatNumber';
 // components
 import Page from '../../components/Page';
 import HeaderBreadcrumbs from '../../components/HeaderBreadcrumbs';
 import useAuth from '../../hooks/useAuth';
 import useIsMountedRef from '../../hooks/useIsMountedRef';
 import { varFadeIn, varFadeInUp, MotionInView, varFadeInDown } from '../../components/animate';
+import { UploadAvatar } from '../../components/upload';
 
 // ----------------------------------------------------------------------
 
@@ -70,7 +72,7 @@ export default function FormO() {
     (acceptedFiles) => {
       const file = acceptedFiles[0];
       if (file) {
-        setFieldValue('photoURL', {
+        setFieldValue('avatarUrl', {
           ...file,
           preview: URL.createObjectURL(file)
         });
@@ -79,7 +81,7 @@ export default function FormO() {
     [setFieldValue]
   );
   return(
-    <Page title="User: Account Settings | Minimal-UI">
+    <Page title="Form O | MineCare">
       <Container maxWidth={themeStretch ? false : 'lg'}>
 
 				<FormikProvider value={formik}>
@@ -121,6 +123,59 @@ export default function FormO() {
 										<Typography sx={{ mb: 2, mx: 'auto', ml:10 , lineHeight:3}}>
 											(3) any employment or work <TextField id="standard-basic" label="" variant="standard" color="warning" sx={{ ml:1 }}/>
 										</Typography>
+                    <Typography sx={{ mb: 2, mx: 'auto' , lineHeight:3}}>
+											(c)* is suffering from <TextField id="standard-basic" label="" variant="standard" color="warning" sx={{ ml:1 }}/>  is should get this disability* cured controlled and should be again examined within a period of <TextField id="standard-basic" label="" variant="standard" color="warning" sx={{ ml:1 }}/> months. He/She will appear for re-examination with the result of test and the opinion of <TextField id="standard-basic" label="" variant="standard" color="warning" sx={{ ml:1 }}/> specialist from <TextField id="standard-basic" label="" variant="standard" color="warning" sx={{ ml:1 }}/>. He/She may be permitted/not* permitted to carry on his duties during this period.
+										</Typography>
+                    <Box sx={{ mb: 5 }} style={{display:"flex"}}>
+                      <Box>
+                        <UploadAvatar
+                          accept="image/*"
+                          file={values.avatarUrl}
+                          maxSize={3145728}
+                          onDrop={handleDrop}
+                          error={Boolean(touched.avatarUrl && errors.avatarUrl)}
+                          caption={
+                            <Typography
+                              variant="caption"
+                              sx={{
+                                mt: 2,
+                                mx: 'auto',
+                                display: 'block',
+                                textAlign: 'center',
+                                color: 'text.secondary'
+                              }}
+                            >
+                              Allowed *.jpeg, *.jpg, *.png, *.gif
+                              <br /> max size of {fData(3145728)}
+                            </Typography>
+                          }
+                        />
+                      </Box>
+                      <Box style={{marginLeft:"auto"}}>
+                        <Typography sx={{ mb: 2, mx: 'auto' }}>
+                          <TextField id="standard-basic" label="" variant="standard" color="warning" sx={{ ml:1 }}/>
+                        </Typography>
+                        <Typography sx={{ mb: 2, mx: 'auto' }}>
+                          (Signature of Examining Authority)
+                        </Typography>
+                        <Typography sx={{ mb: 2, mx: 'auto' }}>
+                          Name and Designation in Block letters
+                        </Typography>
+                        <Typography sx={{ mb: 2, mx: 'auto' }}>
+                          <TextField id="standard-basic" label="" variant="standard" color="warning" sx={{ ml:1 }}/>
+                        </Typography>
+                        <Typography sx={{ mb: 2, mx: 'auto' }}>
+                          <TextField id="standard-basic" label="" variant="standard" color="warning" sx={{ ml:1 }}/>
+                        </Typography>
+                        
+                      </Box>
+                    </Box>
+                    <Typography sx={{ mb: 2, mx: 'auto' }}>
+											Place: <TextField id="standard-basic" label="" variant="standard" color="warning" sx={{ ml:1 }}/>
+										</Typography>
+                    <Typography sx={{ mb: 2, mx: 'auto' }}>
+											Date: <TextField id="standard-basic" label="" variant="standard" color="warning" sx={{ ml:1 }}/>
+										</Typography>
 									</MotionInView>
 									<Button
 										variant="contained"
@@ -128,9 +183,9 @@ export default function FormO() {
 									>
 										RESET
 									</Button>
-									<LoadingButton type="submit" variant="contained" loading={isSubmitting} sx={{float:"right"}}>
-										SAVE
-									</LoadingButton>
+									<Button variant="contained" component={Link} to="/health/form_o/form_o_doc1" sx={{float:"right"}}>
+										NEXT
+									</Button>
 								</Card>
 							</Grid>
 						</Grid>

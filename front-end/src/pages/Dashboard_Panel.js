@@ -38,7 +38,7 @@ export default function DashboardPanel() {
 
   const [setOpen] = useState(false);
   return (
-    <RootStyle title="MineCare Administration | Minimal-UI">
+    <RootStyle title="MineCare Administration">
     <DashboardNavbar onOpenSidebar={() => setOpen(true)} />
       <Typography variant="h4" sx={{ px: 5, mt: 2, mb: 2 }}>
         Quick Access

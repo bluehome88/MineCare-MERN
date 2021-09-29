@@ -50,7 +50,7 @@ export default function Login() {
   const { method } = useAuth();
 
   return (
-    <RootStyle title="Login | Minimal-UI">
+    <RootStyle title="SignIn | MineCare">
       <MHidden width="mdDown">
         <SectionStyle>
         	<CenterImageStyle>

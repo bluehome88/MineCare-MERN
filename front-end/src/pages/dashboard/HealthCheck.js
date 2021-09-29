@@ -1,9 +1,9 @@
+import { useState, useCallback } from 'react';
 import { Icon } from '@iconify/react';
 import * as Yup from 'yup';
 import { useSnackbar } from 'notistack';
 import { Form, FormikProvider, useFormik } from 'formik';
 import { Link } from 'react-router-dom';
-import { useCallback } from 'react';
 import searchFill from '@iconify/icons-eva/search-fill';
 // material
 import { Container, Box, Typography, Grid, Card, Stack, TableContainer, TextField, Table, TableBody, TableRow, TableHead, TableCell, Button } from '@mui/material';
@@ -25,6 +25,7 @@ export default function HealthCheck() {
 	const isMountedRef = useIsMountedRef();
   const { enqueueSnackbar } = useSnackbar();
   const { user, updateProfile } = useAuth();
+  const [ isSearched, setSearched ] = useState(false);
 
   const UpdateUserSchema = Yup.object().shape({
     displayName: Yup.string().required('Name is required')
@@ -49,8 +50,9 @@ export default function HealthCheck() {
     validationSchema: UpdateUserSchema,
     onSubmit: async (values, { setErrors, setSubmitting }) => {
       try {
+        setSearched(true);
         await updateProfile({ ...values });
-        enqueueSnackbar('Update success', { variant: 'success' });
+        enqueueSnackbar('Search Finished', { variant: 'success' });
         if (isMountedRef.current) {
           setSubmitting(false);
         }
@@ -78,7 +80,7 @@ export default function HealthCheck() {
     [setFieldValue]
   );
   return(
-    <Page title="User: Account Settings | Minimal-UI">
+    <Page title="Health Checkup | MineCare">
       <Container maxWidth={themeStretch ? false : 'lg'}>
 
       	<FormikProvider value={formik}>
@@ -103,7 +105,7 @@ export default function HealthCheck() {
 		                </Box>
 		              </Stack>
 
-		              <TableContainer sx={{ minWidth: 800, mt:5 }}>
+		              {isSearched ? <TableContainer sx={{ minWidth: 800, mt:5 }}>
 		                <Table>
 		                  <TableHead>
 		                    <TableRow>
@@ -135,7 +137,7 @@ export default function HealthCheck() {
 		                        </TableRow>
 		                  </TableBody>
 		                </Table>
-		              </TableContainer>
+		              </TableContainer> : null}
 		            </Card>
 		          </Grid>
 		        </Grid>

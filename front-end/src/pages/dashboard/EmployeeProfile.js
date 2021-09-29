@@ -64,17 +64,8 @@ export default function EmployeeProfile() {
   };
 
   return (
-    <Page title="User: Account Settings | Minimal-UI">
+    <Page title="Health History Search | MineCare">
       <Container maxWidth={themeStretch ? false : 'lg'}>
-        <HeaderBreadcrumbs
-          heading="Account"
-          links={[
-            { name: 'Dashboard', href: PATH_DASHBOARD.root },
-            { name: 'Employee', href: PATH_DASHBOARD.user.root },
-            { name: userName }
-          ]}
-        />
-
         <Stack spacing={5}>
           <Tabs
             value={currentTab}

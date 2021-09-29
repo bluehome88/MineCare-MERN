@@ -78,7 +78,7 @@ export default function HealthExam() {
     [setFieldValue]
   );
   return(
-    <Page title="User: Account Settings | Minimal-UI">
+    <Page title="Health Examination | MineCare">
       <Container maxWidth={themeStretch ? false : 'lg'}>
       	<FormikProvider value={formik}>
 		      <Form noValidate autoComplete="off" onSubmit={handleSubmit}>
@@ -121,7 +121,15 @@ export default function HealthExam() {
 													<TableCell align="left">xx/xx/xxxx</TableCell>
 													<TableCell align="left">zzzzzzzz</TableCell>
 													<TableCell align="left">View Form O</TableCell>
-													<TableCell align="left">View</TableCell>
+													<TableCell align="left">
+														<Link
+															to="/static/1.pdf"
+															target="_blank"
+															sx={{mb:2}}
+															>
+															View
+														</Link>
+													</TableCell>
 												</TableRow>
 												<TableRow>
 													<TableCell align="left">Priodic Test</TableCell>
@@ -129,7 +137,15 @@ export default function HealthExam() {
 													<TableCell align="left">xx/xx/xxxx</TableCell>
 													<TableCell align="left">zzzzzzzz</TableCell>
 													<TableCell align="left">View Form O</TableCell>
-													<TableCell align="left">View</TableCell>
+													<TableCell align="left">
+														<Link
+															to="/static/1.pdf"
+															target="_blank"
+															sx={{mb:2}}
+															>
+															View
+															</Link>
+														</TableCell>
 												</TableRow>
 												<TableRow>
 													<TableCell align="left">Priodic Test</TableCell>
@@ -137,7 +153,15 @@ export default function HealthExam() {
 													<TableCell align="left">xx/xx/xxxx</TableCell>
 													<TableCell align="left">zzzzzzzz</TableCell>
 													<TableCell align="left">View Form O</TableCell>
-													<TableCell align="left">View</TableCell>
+													<TableCell align="left">
+														<Link
+															to="/static/1.pdf"
+															target="_blank"
+															sx={{mb:2}}
+															>
+															View
+														</Link>
+													</TableCell>
 												</TableRow>
 		                  </TableBody>
 		                </Table>

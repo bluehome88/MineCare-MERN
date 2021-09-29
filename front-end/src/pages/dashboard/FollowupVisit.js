@@ -75,7 +75,7 @@ export default function FollowupVisit() {
     [setFieldValue]
   );
   return(
-    <Page title="User: Account Settings | Minimal-UI">
+    <Page title="Health FollowUp Visit | MineCare">
       <Container maxWidth={themeStretch ? false : 'lg'}>
         <HeaderBreadcrumbs
           heading="Health"

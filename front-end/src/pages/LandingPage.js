@@ -70,7 +70,7 @@ const RootStyle = styled(Page)(({ theme }) => ({
 export default function LandingPage() {
   const [setOpen] = useState(false);
   return (
-    <RootStyle title="MineCare | Minimal-UI">
+    <RootStyle title="Home | MineCare">
       <DashboardNavbar onOpenSidebar={() => setOpen(true)} />
       <Container maxWidth="lg">
         <Typography variant="h2" align="center" paragraph>
